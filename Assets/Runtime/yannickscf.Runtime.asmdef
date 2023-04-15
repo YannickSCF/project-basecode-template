@@ -1,12 +1,7 @@
 {
-    "name": "yannickscf.BaseGameManager",
+    "name": "yannickscf.Runtime",
     "rootNamespace": "",
     "references": [
-        "BaseSettingsViewEvents",
-        "yannickscf.appconstants",
-        "yannickscf.conditionalhideattribute",
-        "Unity.Localization",
-        "yannickscf.scenefield",
         "yannickscf.Runtime.Tools"
     ],
     "includePlatforms": [],
