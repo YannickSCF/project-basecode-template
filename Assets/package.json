@@ -1,0 +1,23 @@
+{
+  "name": "com.yannickscf.project-basecode-template",
+  "version": "0.0.1",
+  "displayName": "Yannick - Project Base Code Templates",
+  "description": "Basic code created by Yannick for create template projects",
+  "unity": "2021.3",
+  "unityRelease": "0b5",
+  "dependencies": {
+    "com.unity.localization": "1.3.2"
+ },
+  "author": {
+    "name": "Yannick Santa Cruz Feuillias",
+    "email": "yannickscf@gmail.com",
+    "url": "https://github.com/YannickSCF"
+  },
+  "samples": [
+    {
+      "displayName": "Basic template",
+      "description": "Contains basic example template",
+      "path": "Samples/Basic Template"
+    }
+  ]
+}
