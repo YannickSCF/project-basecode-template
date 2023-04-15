@@ -1,0 +1,22 @@
+{
+    "name": "yannickscf.Runtime.GeneralApp.Controllers",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3921907322ac56e42904b53abdb689cd",
+        "GUID:09f1f8d463f81c249a0341c4a26fb9f2",
+        "GUID:57aceb93e943b3a48b90c3b7039ece0c",
+        "GUID:84548ff84b494d342b70aa69046e2529",
+        "GUID:6e9fc9dbfc8a76941b04cacabbadd9e9",
+        "GUID:7f43902622c80fc41b2e108ffdd882c6",
+        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

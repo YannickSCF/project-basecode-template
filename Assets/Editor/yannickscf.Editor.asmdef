@@ -1,12 +1,10 @@
 {
-    "name": "BaseSettingsViewEvents",
+    "name": "yannickscf.Editor",
     "rootNamespace": "",
     "references": [
         "GUID:6e9fc9dbfc8a76941b04cacabbadd9e9",
         "GUID:7f43902622c80fc41b2e108ffdd882c6",
-        "GUID:84548ff84b494d342b70aa69046e2529",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:57aceb93e943b3a48b90c3b7039ece0c"
+        "GUID:84548ff84b494d342b70aa69046e2529"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

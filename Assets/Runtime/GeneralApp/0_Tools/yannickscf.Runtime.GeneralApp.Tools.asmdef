@@ -1,12 +1,7 @@
 {
-    "name": "yannickscf.Runtime",
+    "name": "yannickscf.Runtime.GeneralApp.Tools",
     "rootNamespace": "",
-    "references": [
-        "yannickscf.Runtime.Tools",
-        "yannickscf.Runtime.GeneralApp.Views",
-        "yannickscf.Runtime.GeneralApp.Controllers",
-        "yannickscf.Runtime.GeneralApp.Tools"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

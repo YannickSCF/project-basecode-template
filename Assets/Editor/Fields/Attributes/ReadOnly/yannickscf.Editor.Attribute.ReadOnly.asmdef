@@ -1,14 +1,7 @@
 {
-    "name": "yannickscf.BaseGameManager",
+    "name": "yannickscf.Editor.Attribute.ReadOnly",
     "rootNamespace": "",
-    "references": [
-        "BaseSettingsViewEvents",
-        "yannickscf.appconstants",
-        "yannickscf.conditionalhideattribute",
-        "Unity.Localization",
-        "yannickscf.scenefield",
-        "yannickscf.Runtime.Tools"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
