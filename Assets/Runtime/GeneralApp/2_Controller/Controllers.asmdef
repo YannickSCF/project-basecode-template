@@ -1,0 +1,21 @@
+{
+    "name": "yannickscf.BaseGameManager",
+    "rootNamespace": "",
+    "references": [
+        "BaseSettingsViewEvents",
+        "yannickscf.appconstants",
+        "yannickscf.conditionalhideattribute",
+        "yannickscf.GlobalSingleton",
+        "Unity.Localization",
+        "yannickscf.scenefield"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

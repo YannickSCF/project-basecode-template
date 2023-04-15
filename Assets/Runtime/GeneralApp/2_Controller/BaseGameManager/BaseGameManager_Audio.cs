@@ -8,10 +8,6 @@ using UnityEngine;
 /// Custom dependencies
 using YannickSCF.GeneralApp.Controller.Audio;
 
-namespace YannickSCF.GeneralApp {
-    public enum AudioSources { General, Music, SFX };
-}
-
 namespace YannickSCF.GeneralApp.GameManager {
     /// <summary>
     /// Base Game Manager (partial).
