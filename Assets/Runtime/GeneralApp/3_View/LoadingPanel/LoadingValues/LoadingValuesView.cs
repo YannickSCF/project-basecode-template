@@ -5,7 +5,6 @@
 
 /// Dependencies
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +12,9 @@ namespace YannickSCF.GeneralApp.View.LoadingPanel.LoadingValues {
     public class LoadingValuesView : MonoBehaviour {
 
         [Header("Loading values components")]
-        [SerializeField] private TextMeshProUGUI loadingTMP;
+        [SerializeField] private Text loadingTMP;
         [SerializeField] private Slider progressSlider;
-        [SerializeField] private TextMeshProUGUI textUpdatesTMP;
+        [SerializeField] private Text textUpdatesTMP;
 
         [Header("Show/Hide important values")]
         [SerializeField] private CanvasGroup allGroup;
