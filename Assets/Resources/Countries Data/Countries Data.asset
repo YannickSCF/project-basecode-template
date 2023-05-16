@@ -1,0 +1,1143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd6b02f80783114aa5fea9cf5aeef53, type: 3}
+  m_Name: Countries Data
+  m_EditorClassIdentifier: 
+  _allCountries:
+  - countryArrayName: Afghanistan (AF)
+    countryId: AF
+    countryName:
+      spanishName: 
+      englishName: Afghanistan
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3610480807115847445, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: "\xC5land Islands (AX)"
+    countryId: AX
+    countryName:
+      spanishName: 
+      englishName: "\xC5land Islands"
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -6413106379692855771, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Albania (AL)
+    countryId: AL
+    countryName:
+      spanishName: 
+      englishName: Albania
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3092269671703345646, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Algeria (DZ)
+    countryId: DZ
+    countryName:
+      spanishName: 
+      englishName: Algeria
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7859021122394731430, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: American Samoa (AS)
+    countryId: AS
+    countryName:
+      spanishName: 
+      englishName: American Samoa
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 9147851925304968590, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Andorra (AD)
+    countryId: AD
+    countryName:
+      spanishName: 
+      englishName: Andorra
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -5454100967528559629, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Angola (AO)
+    countryId: AO
+    countryName:
+      spanishName: 
+      englishName: Angola
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -5655611625965832497, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Anguilla (AI)
+    countryId: AI
+    countryName:
+      spanishName: 
+      englishName: Anguilla
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -2884576804635766774, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Antarctica (AQ)
+    countryId: AQ
+    countryName:
+      spanishName: 
+      englishName: Antarctica
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -7379204275070705010, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Antigua and Barbuda (AG)
+    countryId: AG
+    countryName:
+      spanishName: 
+      englishName: Antigua and Barbuda
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 8232331569007966179, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Argentina (AR)
+    countryId: AR
+    countryName:
+      spanishName: 
+      englishName: Argentina
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 5945094000608773073, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Armenia (AM)
+    countryId: AM
+    countryName:
+      spanishName: 
+      englishName: Armenia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -2464750652821086261, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Aruba (AW)
+    countryId: AW
+    countryName:
+      spanishName: 
+      englishName: Aruba
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 3294722979529017979, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Australia (AU)
+    countryId: AU
+    countryName:
+      spanishName: 
+      englishName: Australia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -2202422294076373890, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Austria (AT)
+    countryId: AT
+    countryName:
+      spanishName: 
+      englishName: Austria
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -4531445994321539699, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Azerbaijan (AZ)
+    countryId: AZ
+    countryName:
+      spanishName: 
+      englishName: Azerbaijan
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 1885351009664950909, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Bahamas (BS)
+    countryId: BS
+    countryName:
+      spanishName: 
+      englishName: Bahamas
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -6872477868536190706, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Bahrain (BH)
+    countryId: BH
+    countryName:
+      spanishName: 
+      englishName: Bahrain
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 4312158757736332961, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Bangladesh (BD)
+    countryId: BD
+    countryName:
+      spanishName: 
+      englishName: Bangladesh
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -2851363181209285640, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Barbados (BB)
+    countryId: BB
+    countryName:
+      spanishName: 
+      englishName: Barbados
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -4065058888484932924, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Belarus (BY)
+    countryId: BY
+    countryName:
+      spanishName: 
+      englishName: Belarus
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 6839567666743517310, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Belgium (BE)
+    countryId: BE
+    countryName:
+      spanishName: 
+      englishName: Belgium
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -7142636636153950238, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Belize (BZ)
+    countryId: BZ
+    countryName:
+      spanishName: 
+      englishName: Belize
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -4259284187918547026, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Benin (BJ)
+    countryId: BJ
+    countryName:
+      spanishName: 
+      englishName: Benin
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 2661934530784852633, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Bermuda (BM)
+    countryId: BM
+    countryName:
+      spanishName: 
+      englishName: Bermuda
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7954776065520871820, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Bhutan (BT)
+    countryId: BT
+    countryName:
+      spanishName: 
+      englishName: Bhutan
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7873694630175908461, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Bolivia (BO)
+    countryId: BO
+    countryName:
+      spanishName: 
+      englishName: Bolivia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 4982409456775695534, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Bonaire, Sint Eustatius and Saba (BQ)
+    countryId: BQ
+    countryName:
+      spanishName: 
+      englishName: Bonaire, Sint Eustatius and Saba
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 4380184067043951503, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Bosnia and Herzegovina (BA)
+    countryId: BA
+    countryName:
+      spanishName: 
+      englishName: Bosnia and Herzegovina
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -8751071225416107563, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Botswana (BW)
+    countryId: BW
+    countryName:
+      spanishName: 
+      englishName: Botswana
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3133934732750127891, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Bouvet Island (BV)
+    countryId: BV
+    countryName:
+      spanishName: 
+      englishName: Bouvet Island
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 4582319992094925038, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Brazil (BR)
+    countryId: BR
+    countryName:
+      spanishName: 
+      englishName: Brazil
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3838788357480897110, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: British Indian Ocean Territory (IO)
+    countryId: IO
+    countryName:
+      spanishName: 
+      englishName: British Indian Ocean Territory
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3273548749727526690, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Brunei Darussalam (BN)
+    countryId: BN
+    countryName:
+      spanishName: 
+      englishName: Brunei Darussalam
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 3515071485884869113, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Bulgaria (BG)
+    countryId: BG
+    countryName:
+      spanishName: 
+      englishName: Bulgaria
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -6453223524108514690, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Burkina Faso (BF)
+    countryId: BF
+    countryName:
+      spanishName: 
+      englishName: Burkina Faso
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 2212147424054462587, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Burundi (BI)
+    countryId: BI
+    countryName:
+      spanishName: 
+      englishName: Burundi
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7963860247002610397, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Cabo Verde (CV)
+    countryId: CV
+    countryName:
+      spanishName: 
+      englishName: Cabo Verde
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -4962477687571647339, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Cambodia (KH)
+    countryId: KH
+    countryName:
+      spanishName: 
+      englishName: Cambodia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 3091620813403862665, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Cameroon (CM)
+    countryId: CM
+    countryName:
+      spanishName: 
+      englishName: Cameroon
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -2670524783078162477, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Canada (CA)
+    countryId: CA
+    countryName:
+      spanishName: 
+      englishName: Canada
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 853652182269352477, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Cayman Islands (KY)
+    countryId: KY
+    countryName:
+      spanishName: 
+      englishName: Cayman Islands
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -4565593820120469950, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Central African Republic (CF)
+    countryId: CF
+    countryName:
+      spanishName: 
+      englishName: Central African Republic
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 6329684725807336366, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Chad (TD)
+    countryId: TD
+    countryName:
+      spanishName: 
+      englishName: Chad
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -8567089926002250814, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Chile (CL)
+    countryId: CL
+    countryName:
+      spanishName: 
+      englishName: Chile
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -5090263813398745514, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: China (CN)
+    countryId: CN
+    countryName:
+      spanishName: 
+      englishName: China
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 5346549673195272959, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Christmas Island (CX)
+    countryId: CX
+    countryName:
+      spanishName: 
+      englishName: Christmas Island
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 4745270000724795999, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Cocos (Keeling) Islands (CC)
+    countryId: CC
+    countryName:
+      spanishName: 
+      englishName: Cocos (Keeling) Islands
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -8281520364090186499, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Colombia (CO)
+    countryId: CO
+    countryName:
+      spanishName: 
+      englishName: Colombia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 3115912769287821434, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Comoros (KM)
+    countryId: KM
+    countryName:
+      spanishName: 
+      englishName: Comoros
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 1858340404468709684, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Congo (CG)
+    countryId: CG
+    countryName:
+      spanishName: 
+      englishName: Congo
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 5530151995487575336, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Congo (Democratic Republic of the) (CD)
+    countryId: CD
+    countryName:
+      spanishName: 
+      englishName: Congo (Democratic Republic of the)
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -6788017920361319622, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Cook Islands (CK)
+    countryId: CK
+    countryName:
+      spanishName: 
+      englishName: Cook Islands
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 5576780545992315032, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Costa Rica (CR)
+    countryId: CR
+    countryName:
+      spanishName: 
+      englishName: Costa Rica
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -7790226733049740809, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: "C\xF4te d'Ivoire (CI)"
+    countryId: CI
+    countryName:
+      spanishName: 
+      englishName: "C\xF4te d'Ivoire"
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -2131923917339113706, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Croatia (HR)
+    countryId: HR
+    countryName:
+      spanishName: 
+      englishName: Croatia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 2241457790147832261, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Cuba (CU)
+    countryId: CU
+    countryName:
+      spanishName: 
+      englishName: Cuba
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -6941996489084686271, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: "Cura\xE7ao (CW)"
+    countryId: CW
+    countryName:
+      spanishName: 
+      englishName: "Cura\xE7ao"
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 2483353835972253021, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Cyprus (CY)
+    countryId: CY
+    countryName:
+      spanishName: 
+      englishName: Cyprus
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -311751618158849000, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Czechia (CZ)
+    countryId: CZ
+    countryName:
+      spanishName: 
+      englishName: Czechia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 4868569285801927245, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Denmark (DK)
+    countryId: DK
+    countryName:
+      spanishName: 
+      englishName: Denmark
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -1427698326064662846, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Djibouti (DJ)
+    countryId: DJ
+    countryName:
+      spanishName: 
+      englishName: Djibouti
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -2277293781997187815, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Dominica (DM)
+    countryId: DM
+    countryName:
+      spanishName: 
+      englishName: Dominica
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 6627356566077038884, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Dominican Republic (DO)
+    countryId: DO
+    countryName:
+      spanishName: 
+      englishName: Dominican Republic
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 8222665524140606026, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Ecuador (EC)
+    countryId: EC
+    countryName:
+      spanishName: 
+      englishName: Ecuador
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 5620621891249350867, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Egypt (EG)
+    countryId: EG
+    countryName:
+      spanishName: 
+      englishName: Egypt
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 136054091768642584, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: El Salvador (SV)
+    countryId: SV
+    countryName:
+      spanishName: 
+      englishName: El Salvador
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 337591991937763078, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Equatorial Guinea (GQ)
+    countryId: GQ
+    countryName:
+      spanishName: 
+      englishName: Equatorial Guinea
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 5045444161476950864, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Eritrea (ER)
+    countryId: ER
+    countryName:
+      spanishName: 
+      englishName: Eritrea
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 3235763223932655691, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Estonia (EE)
+    countryId: EE
+    countryName:
+      spanishName: 
+      englishName: Estonia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7218933776589329126, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Ethiopia (ET)
+    countryId: ET
+    countryName:
+      spanishName: 
+      englishName: Ethiopia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 8914141322273654444, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Falkland Islands (Malvinas) (FK)
+    countryId: FK
+    countryName:
+      spanishName: 
+      englishName: Falkland Islands (Malvinas)
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -4114900242583539466, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Faroe Islands (FO)
+    countryId: FO
+    countryName:
+      spanishName: 
+      englishName: Faroe Islands
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -5202841861516199848, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Fiji (FJ)
+    countryId: FJ
+    countryName:
+      spanishName: 
+      englishName: Fiji
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -8264555978047839727, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Finland (FI)
+    countryId: FI
+    countryName:
+      spanishName: 
+      englishName: Finland
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 8392953443383955786, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: France (FR)
+    countryId: FR
+    countryName:
+      spanishName: 
+      englishName: France
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 4936976853604800933, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: French Guiana (GF)
+    countryId: GF
+    countryName:
+      spanishName: 
+      englishName: French Guiana
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -4882608748225926435, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: French Polynesia (PF)
+    countryId: PF
+    countryName:
+      spanishName: 
+      englishName: French Polynesia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -5495454073461309527, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: French Southern Territories (TF)
+    countryId: TF
+    countryName:
+      spanishName: 
+      englishName: French Southern Territories
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 6554441216398659998, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Gabon (GA)
+    countryId: GA
+    countryName:
+      spanishName: 
+      englishName: Gabon
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3110095309691724522, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Gambia (GM)
+    countryId: GM
+    countryName:
+      spanishName: 
+      englishName: Gambia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -1997956875164459783, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Georgia (GE)
+    countryId: GE
+    countryName:
+      spanishName: 
+      englishName: Georgia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3266260229873005775, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Germany (DE)
+    countryId: DE
+    countryName:
+      spanishName: 
+      englishName: Germany
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 155962934259215815, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Ghana (GH)
+    countryId: GH
+    countryName:
+      spanishName: 
+      englishName: Ghana
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7678903383051614840, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Gibraltar (GI)
+    countryId: GI
+    countryName:
+      spanishName: 
+      englishName: Gibraltar
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 6126270028350285461, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Greece (GR)
+    countryId: GR
+    countryName:
+      spanishName: 
+      englishName: Greece
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 8170883835840172114, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Greenland (GL)
+    countryId: GL
+    countryName:
+      spanishName: 
+      englishName: Greenland
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7006293471197442816, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Grenada (GD)
+    countryId: GD
+    countryName:
+      spanishName: 
+      englishName: Grenada
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 1247354261404075200, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Guadeloupe (GP)
+    countryId: GP
+    countryName:
+      spanishName: 
+      englishName: Guadeloupe
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -6104515372425880985, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Guam (GU)
+    countryId: GU
+    countryName:
+      spanishName: 
+      englishName: Guam
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 5764968400905537648, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Guatemala (GT)
+    countryId: GT
+    countryName:
+      spanishName: 
+      englishName: Guatemala
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7763972329031090259, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Guernsey (GG)
+    countryId: GG
+    countryName:
+      spanishName: 
+      englishName: Guernsey
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 3945411945859281997, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Guinea (GN)
+    countryId: GN
+    countryName:
+      spanishName: 
+      englishName: Guinea
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 6659415766099999252, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Guinea-Bissau (GW)
+    countryId: GW
+    countryName:
+      spanishName: 
+      englishName: Guinea-Bissau
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 5886686174346603187, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Guyana (GY)
+    countryId: GY
+    countryName:
+      spanishName: 
+      englishName: Guyana
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -2491951118621382701, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Haiti (HT)
+    countryId: HT
+    countryName:
+      spanishName: 
+      englishName: Haiti
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -8221532998945204998, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Heard Island and McDonald Islands (HM)
+    countryId: HM
+    countryName:
+      spanishName: 
+      englishName: Heard Island and McDonald Islands
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 4661460397793315452, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Holy See (VA)
+    countryId: VA
+    countryName:
+      spanishName: 
+      englishName: Holy See
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 1932593334486291039, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Honduras (HN)
+    countryId: HN
+    countryName:
+      spanishName: 
+      englishName: Honduras
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3707662582877821654, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Hong Kong (HK)
+    countryId: HK
+    countryName:
+      spanishName: 
+      englishName: Hong Kong
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -6102694366338746553, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Hungary (HU)
+    countryId: HU
+    countryName:
+      spanishName: 
+      englishName: Hungary
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -7415296989293265629, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Iceland (IS)
+    countryId: IS
+    countryName:
+      spanishName: 
+      englishName: Iceland
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -6505380316852466274, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: India (IN)
+    countryId: IN
+    countryName:
+      spanishName: 
+      englishName: India
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 3232502950558851182, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Indonesia (ID)
+    countryId: ID
+    countryName:
+      spanishName: 
+      englishName: Indonesia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 3807956257504046461, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Iran (Islamic Republic of) (IR)
+    countryId: IR
+    countryName:
+      spanishName: 
+      englishName: Iran (Islamic Republic of)
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 1291353074106208470, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Iraq (IQ)
+    countryId: IQ
+    countryName:
+      spanishName: 
+      englishName: Iraq
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -8081155390839097136, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Ireland (IE)
+    countryId: IE
+    countryName:
+      spanishName: 
+      englishName: Ireland
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -1906097094726457223, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Isle of Man (IM)
+    countryId: IM
+    countryName:
+      spanishName: 
+      englishName: Isle of Man
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 3297150825525224086, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Israel (IL)
+    countryId: IL
+    countryName:
+      spanishName: 
+      englishName: Israel
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 2201496155856022053, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Italy (IT)
+    countryId: IT
+    countryName:
+      spanishName: 
+      englishName: Italy
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7503741989021582321, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Jamaica (JM)
+    countryId: JM
+    countryName:
+      spanishName: 
+      englishName: Jamaica
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -216578310115741763, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Japan (JP)
+    countryId: JP
+    countryName:
+      spanishName: 
+      englishName: Japan
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -7538945322252466816, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Jersey (JE)
+    countryId: JE
+    countryName:
+      spanishName: 
+      englishName: Jersey
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -9141830251801871091, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Jordan (JO)
+    countryId: JO
+    countryName:
+      spanishName: 
+      englishName: Jordan
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -720374646424832472, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Kazakhstan (KZ)
+    countryId: KZ
+    countryName:
+      spanishName: 
+      englishName: Kazakhstan
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 3652899096973124306, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Kenya (KE)
+    countryId: KE
+    countryName:
+      spanishName: 
+      englishName: Kenya
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -4651135820116590823, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Kiribati (KI)
+    countryId: KI
+    countryName:
+      spanishName: 
+      englishName: Kiribati
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -5439361550895304880, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Korea (Democratic People's Republic of) (KP)
+    countryId: KP
+    countryName:
+      spanishName: 
+      englishName: Korea (Democratic People's Republic of)
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 2082746461830808698, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Korea (Republic of) (KR)
+    countryId: KR
+    countryName:
+      spanishName: 
+      englishName: Korea (Republic of)
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -102780009435278835, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Kuwait (KW)
+    countryId: KW
+    countryName:
+      spanishName: 
+      englishName: Kuwait
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3254585964730862856, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Kyrgyzstan (KG)
+    countryId: KG
+    countryName:
+      spanishName: 
+      englishName: Kyrgyzstan
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -6609249789396538580, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Lao People's Democratic Republic (LA)
+    countryId: LA
+    countryName:
+      spanishName: 
+      englishName: Lao People's Democratic Republic
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -7543036708426352692, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Latvia (LV)
+    countryId: LV
+    countryName:
+      spanishName: 
+      englishName: Latvia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -5907935260982513465, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Lebanon (LB)
+    countryId: LB
+    countryName:
+      spanishName: 
+      englishName: Lebanon
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -2788680979629726548, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Lesotho (LS)
+    countryId: LS
+    countryName:
+      spanishName: 
+      englishName: Lesotho
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7677678884985703600, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Liberia (LR)
+    countryId: LR
+    countryName:
+      spanishName: 
+      englishName: Liberia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 6805231965808058242, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Libya (LY)
+    countryId: LY
+    countryName:
+      spanishName: 
+      englishName: Libya
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 5167252863675007689, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Liechtenstein (LI)
+    countryId: LI
+    countryName:
+      spanishName: 
+      englishName: Liechtenstein
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -1965066366523462055, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Lithuania (LT)
+    countryId: LT
+    countryName:
+      spanishName: 
+      englishName: Lithuania
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 5310474981542145435, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Luxembourg (LU)
+    countryId: LU
+    countryName:
+      spanishName: 
+      englishName: Luxembourg
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3247088705284298425, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Macao (MO)
+    countryId: MO
+    countryName:
+      spanishName: 
+      englishName: Macao
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 2468503955095245015, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Macedonia (the former Yugoslav Republic of) (MK)
+    countryId: MK
+    countryName:
+      spanishName: 
+      englishName: Macedonia (the former Yugoslav Republic of)
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -7452312434563554043, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Madagascar (MG)
+    countryId: MG
+    countryName:
+      spanishName: 
+      englishName: Madagascar
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -4398419794553232796, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Malawi (MW)
+    countryId: MW
+    countryName:
+      spanishName: 
+      englishName: Malawi
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 6444428339102804851, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Malaysia (MY)
+    countryId: MY
+    countryName:
+      spanishName: 
+      englishName: Malaysia
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3610007216653618849, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Maldives (MV)
+    countryId: MV
+    countryName:
+      spanishName: 
+      englishName: Maldives
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -3143630585090533505, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Mali (ML)
+    countryId: ML
+    countryName:
+      spanishName: 
+      englishName: Mali
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 7569707851187135318, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Malta (MT)
+    countryId: MT
+    countryName:
+      spanishName: 
+      englishName: Malta
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -5126581924314220260, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Marshall Islands (MH)
+    countryId: MH
+    countryName:
+      spanishName: 
+      englishName: Marshall Islands
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: -7286755513580369376, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: Martinique (MQ)
+    countryId: MQ
+    countryName:
+      spanishName: 
+      englishName: Martinique
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 50474715513175305, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
+  - countryArrayName: sad (asdf)
+    countryId: asd
+    countryName:
+      spanishName: 
+      englishName: sad
+      italianName: 
+      frenchName: 
+    countryFlag: {fileID: 50474715513175305, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}

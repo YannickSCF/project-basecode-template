@@ -129,9 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f937e20d16b894daa095a5fbb4595f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingTMP: {fileID: 0}
+  loadingTMP: {fileID: 1289747666736137020}
   progressSlider: {fileID: 7376009553467414392}
-  textUpdatesTMP: {fileID: 0}
+  textUpdatesTMP: {fileID: 1407143686558104576}
   allGroup: {fileID: 7376009552802325101}
   showValues: 2
   hideValues: 2
