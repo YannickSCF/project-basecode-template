@@ -21,213 +21,213 @@ MonoBehaviour:
       italianName: Afganistan
       frenchName: Afghanistan
     countryFlag: {fileID: -3610480807115847445, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: "\xC5land Islands (AX)"
+  - countryArrayName: "\xC5land Islands (AX) - MISS: ES, IT, FR"
     countryId: AX
     countryName:
-      spanishName: Albania
+      spanishName: 
       englishName: "\xC5land Islands"
-      italianName: Albania
-      frenchName: Albanie
+      italianName: 
+      frenchName: 
     countryFlag: {fileID: -6413106379692855771, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Albania (AL) - MISS: ES, IT, FR'
+  - countryArrayName: Albania (AL)
     countryId: AL
     countryName:
-      spanishName: 
+      spanishName: Albania
       englishName: Albania
-      italianName: 
-      frenchName: 
+      italianName: Albania
+      frenchName: Albanie
     countryFlag: {fileID: -3092269671703345646, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Algeria (DZ) - MISS: ES, IT, FR'
+  - countryArrayName: Algeria (DZ)
     countryId: DZ
     countryName:
-      spanishName: 
+      spanishName: Argelia
       englishName: Algeria
-      italianName: 
-      frenchName: 
+      italianName: Algeria
+      frenchName: "Alg\xE9rie"
     countryFlag: {fileID: 7859021122394731430, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'American Samoa (AS) - MISS: ES, IT, FR'
+  - countryArrayName: American Samoa (AS)
     countryId: AS
     countryName:
-      spanishName: 
+      spanishName: Samoa Americana
       englishName: American Samoa
-      italianName: 
-      frenchName: 
+      italianName: Samoa americane
+      frenchName: "Samoa am\xE9ricaines"
     countryFlag: {fileID: 9147851925304968590, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Andorra (AD) - MISS: ES, IT, FR'
+  - countryArrayName: Andorra (AD)
     countryId: AD
     countryName:
-      spanishName: 
+      spanishName: Andorra
       englishName: Andorra
-      italianName: 
-      frenchName: 
+      italianName: Andorra
+      frenchName: Andorre
     countryFlag: {fileID: -5454100967528559629, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Angola (AO) - MISS: ES, IT, FR'
+  - countryArrayName: Angola (AO)
     countryId: AO
     countryName:
-      spanishName: 
+      spanishName: Angola
       englishName: Angola
-      italianName: 
-      frenchName: 
+      italianName: Angola
+      frenchName: Angola
     countryFlag: {fileID: -5655611625965832497, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Anguilla (AI) - MISS: ES, IT, FR'
+  - countryArrayName: Anguilla (AI)
     countryId: AI
     countryName:
-      spanishName: 
+      spanishName: Anguila
       englishName: Anguilla
-      italianName: 
-      frenchName: 
+      italianName: Anguilla
+      frenchName: Anguilla
     countryFlag: {fileID: -2884576804635766774, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Antarctica (AQ) - MISS: ES, IT, FR'
+  - countryArrayName: Antarctica (AQ)
     countryId: AQ
     countryName:
-      spanishName: 
+      spanishName: "Ant\xE1rtida"
       englishName: Antarctica
-      italianName: 
-      frenchName: 
+      italianName: Antartide
+      frenchName: Antarctique
     countryFlag: {fileID: -7379204275070705010, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Antigua and Barbuda (AG) - MISS: ES, IT, FR'
+  - countryArrayName: Antigua and Barbuda (AG)
     countryId: AG
     countryName:
-      spanishName: 
+      spanishName: Antigua y Barbuda
       englishName: Antigua and Barbuda
-      italianName: 
-      frenchName: 
+      italianName: Antigua e Barbuda
+      frenchName: Antigua-et-Barbuda
     countryFlag: {fileID: 8232331569007966179, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Argentina (AR) - MISS: ES, IT, FR'
+  - countryArrayName: Argentina (AR)
     countryId: AR
     countryName:
-      spanishName: 
+      spanishName: Argentina
       englishName: Argentina
-      italianName: 
-      frenchName: 
+      italianName: Argentina
+      frenchName: Argentine
     countryFlag: {fileID: 5945094000608773073, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Armenia (AM) - MISS: ES, IT, FR'
+  - countryArrayName: Armenia (AM)
     countryId: AM
     countryName:
-      spanishName: 
+      spanishName: Armenia
       englishName: Armenia
-      italianName: 
-      frenchName: 
+      italianName: Armenia
+      frenchName: "Arm\xE9nie"
     countryFlag: {fileID: -2464750652821086261, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Aruba (AW) - MISS: ES, IT, FR'
+  - countryArrayName: Aruba (AW)
     countryId: AW
     countryName:
-      spanishName: 
+      spanishName: Aruba
       englishName: Aruba
-      italianName: 
-      frenchName: 
+      italianName: Aruba
+      frenchName: Aruba
     countryFlag: {fileID: 3294722979529017979, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Australia (AU) - MISS: ES, IT, FR'
+  - countryArrayName: Australia (AU)
     countryId: AU
     countryName:
-      spanishName: 
+      spanishName: Australia
       englishName: Australia
-      italianName: 
-      frenchName: 
+      italianName: Australia
+      frenchName: Australie
     countryFlag: {fileID: -2202422294076373890, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Austria (AT) - MISS: ES, IT, FR'
+  - countryArrayName: Austria (AT)
     countryId: AT
     countryName:
-      spanishName: 
+      spanishName: Austria
       englishName: Austria
-      italianName: 
-      frenchName: 
+      italianName: Austria
+      frenchName: Autriche
     countryFlag: {fileID: -4531445994321539699, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Azerbaijan (AZ) - MISS: ES, IT, FR'
+  - countryArrayName: Azerbaijan (AZ)
     countryId: AZ
     countryName:
-      spanishName: 
+      spanishName: "Azerbaiy\xE1n"
       englishName: Azerbaijan
-      italianName: 
-      frenchName: 
+      italianName: Azerbaigian
+      frenchName: "Azerba\xEFdjan"
     countryFlag: {fileID: 1885351009664950909, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Bahamas (BS) - MISS: ES, IT, FR'
+  - countryArrayName: Bahamas (BS)
     countryId: BS
     countryName:
-      spanishName: 
+      spanishName: Bahamas
       englishName: Bahamas
-      italianName: 
-      frenchName: 
+      italianName: Bahamas
+      frenchName: Bahamas
     countryFlag: {fileID: -6872477868536190706, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Bahrain (BH) - MISS: ES, IT, FR'
+  - countryArrayName: Bahrain (BH)
     countryId: BH
     countryName:
-      spanishName: 
+      spanishName: "Bahr\xE1in"
       englishName: Bahrain
-      italianName: 
-      frenchName: 
+      italianName: Bahrein
+      frenchName: "Bahre\xEFn"
     countryFlag: {fileID: 4312158757736332961, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Bangladesh (BD) - MISS: ES, IT, FR'
+  - countryArrayName: Bangladesh (BD)
     countryId: BD
     countryName:
-      spanishName: 
+      spanishName: Bangladesh
       englishName: Bangladesh
-      italianName: 
-      frenchName: 
+      italianName: Bangladesh
+      frenchName: Bangladesh
     countryFlag: {fileID: -2851363181209285640, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Barbados (BB) - MISS: ES, IT, FR'
+  - countryArrayName: Barbados (BB)
     countryId: BB
     countryName:
-      spanishName: 
+      spanishName: Barbados
       englishName: Barbados
-      italianName: 
-      frenchName: 
+      italianName: Barbados
+      frenchName: Barbade
     countryFlag: {fileID: -4065058888484932924, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Belarus (BY) - MISS: ES, IT, FR'
+  - countryArrayName: Belarus (BY)
     countryId: BY
     countryName:
-      spanishName: 
+      spanishName: Bielorrusia
       englishName: Belarus
-      italianName: 
-      frenchName: 
+      italianName: Bielorussia
+      frenchName: Belarus
     countryFlag: {fileID: 6839567666743517310, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Belgium (BE) - MISS: ES, IT, FR'
+  - countryArrayName: Belgium (BE)
     countryId: BE
     countryName:
-      spanishName: 
+      spanishName: "B\xE9lgica"
       englishName: Belgium
-      italianName: 
-      frenchName: 
+      italianName: Belgio
+      frenchName: Belgique
     countryFlag: {fileID: -7142636636153950238, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Belize (BZ) - MISS: ES, IT, FR'
+  - countryArrayName: Belize (BZ)
     countryId: BZ
     countryName:
-      spanishName: 
+      spanishName: Belice
       englishName: Belize
-      italianName: 
-      frenchName: 
+      italianName: Belize
+      frenchName: Belize
     countryFlag: {fileID: -4259284187918547026, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Benin (BJ) - MISS: ES, IT, FR'
+  - countryArrayName: Benin (BJ)
     countryId: BJ
     countryName:
-      spanishName: 
+      spanishName: "Ben\xEDn"
       englishName: Benin
-      italianName: 
-      frenchName: 
+      italianName: Benin
+      frenchName: "B\xE9nin"
     countryFlag: {fileID: 2661934530784852633, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Bermuda (BM) - MISS: ES, IT, FR'
+  - countryArrayName: Bermuda (BM)
     countryId: BM
     countryName:
-      spanishName: 
+      spanishName: Bermudas
       englishName: Bermuda
-      italianName: 
-      frenchName: 
+      italianName: Bermuda
+      frenchName: Bermudes
     countryFlag: {fileID: 7954776065520871820, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Bhutan (BT) - MISS: ES, IT, FR'
+  - countryArrayName: Bhutan (BT)
     countryId: BT
     countryName:
-      spanishName: 
+      spanishName: "But\xE1n"
       englishName: Bhutan
-      italianName: 
-      frenchName: 
+      italianName: Bhutan
+      frenchName: Bhoutan
     countryFlag: {fileID: 7873694630175908461, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Bolivia (BO) - MISS: ES, IT, FR'
+  - countryArrayName: Bolivia (BO)
     countryId: BO
     countryName:
-      spanishName: 
+      spanishName: Bolivia
       englishName: Bolivia
-      italianName: 
-      frenchName: 
+      italianName: Bolivia
+      frenchName: Bolivie
     countryFlag: {fileID: 4982409456775695534, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
   - countryArrayName: 'Bonaire, Sint Eustatius and Saba (BQ) - MISS: ES, IT, FR'
     countryId: BQ
@@ -237,93 +237,93 @@ MonoBehaviour:
       italianName: 
       frenchName: 
     countryFlag: {fileID: 4380184067043951503, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Bosnia and Herzegovina (BA) - MISS: ES, IT, FR'
+  - countryArrayName: Bosnia and Herzegovina (BA)
     countryId: BA
     countryName:
-      spanishName: 
+      spanishName: Bosnia y Hercegovina
       englishName: Bosnia and Herzegovina
-      italianName: 
-      frenchName: 
+      italianName: Bosnia-Erzegovina
+      frenchName: "Bosnie-Herz\xE9govine"
     countryFlag: {fileID: -8751071225416107563, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Botswana (BW) - MISS: ES, IT, FR'
+  - countryArrayName: Botswana (BW)
     countryId: BW
     countryName:
-      spanishName: 
+      spanishName: Botswana
       englishName: Botswana
-      italianName: 
-      frenchName: 
+      italianName: Botswana
+      frenchName: Botswana
     countryFlag: {fileID: -3133934732750127891, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Bouvet Island (BV) - MISS: ES, IT, FR'
+  - countryArrayName: Bouvet Island (BV)
     countryId: BV
     countryName:
-      spanishName: 
+      spanishName: Isla Bouvet
       englishName: Bouvet Island
-      italianName: 
-      frenchName: 
+      italianName: Isola Bouvet
+      frenchName: Ile Bouvet
     countryFlag: {fileID: 4582319992094925038, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Brazil (BR) - MISS: ES, IT, FR'
+  - countryArrayName: Brazil (BR)
     countryId: BR
     countryName:
-      spanishName: 
+      spanishName: Brasil
       englishName: Brazil
-      italianName: 
-      frenchName: 
+      italianName: Brasile
+      frenchName: "Br\xE9sil"
     countryFlag: {fileID: -3838788357480897110, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'British Indian Ocean Territory (IO) - MISS: ES, IT, FR'
+  - countryArrayName: British Indian Ocean Territory (IO)
     countryId: IO
     countryName:
-      spanishName: 
+      spanishName: "Territorio Brit\xE1nico del Oc\xE9ano Indico"
       englishName: British Indian Ocean Territory
-      italianName: 
-      frenchName: 
+      italianName: Territorio britannico dell'Oceano Indiano
+      frenchName: "Territoire britannique de l'Oc\xE9an Indien"
     countryFlag: {fileID: -3273548749727526690, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Brunei Darussalam (BN) - MISS: ES, IT, FR'
+  - countryArrayName: Brunei (BN)
     countryId: BN
     countryName:
-      spanishName: 
-      englishName: Brunei Darussalam
-      italianName: 
-      frenchName: 
+      spanishName: "Brun\xE9i"
+      englishName: Brunei
+      italianName: Brunei
+      frenchName: Brunei
     countryFlag: {fileID: 3515071485884869113, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Bulgaria (BG) - MISS: ES, IT, FR'
+  - countryArrayName: Bulgaria (BG)
     countryId: BG
     countryName:
-      spanishName: 
+      spanishName: Bulgaria
       englishName: Bulgaria
-      italianName: 
-      frenchName: 
+      italianName: Bulgaria
+      frenchName: Bulgarie
     countryFlag: {fileID: -6453223524108514690, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Burkina Faso (BF) - MISS: ES, IT, FR'
+  - countryArrayName: Burkina Faso (BF)
     countryId: BF
     countryName:
-      spanishName: 
+      spanishName: Burkina Faso
       englishName: Burkina Faso
-      italianName: 
-      frenchName: 
+      italianName: Burkina Faso
+      frenchName: Burkina Faso
     countryFlag: {fileID: 2212147424054462587, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Burundi (BI) - MISS: ES, IT, FR'
+  - countryArrayName: Burundi (BI)
     countryId: BI
     countryName:
-      spanishName: 
+      spanishName: Burundi
       englishName: Burundi
-      italianName: 
-      frenchName: 
+      italianName: Burundi
+      frenchName: Burundi
     countryFlag: {fileID: 7963860247002610397, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Cabo Verde (CV) - MISS: ES, IT, FR'
+  - countryArrayName: Cape Verde (CV)
     countryId: CV
     countryName:
-      spanishName: 
-      englishName: Cabo Verde
-      italianName: 
-      frenchName: 
+      spanishName: Cabo Verde
+      englishName: Cape Verde
+      italianName: Capo Verde
+      frenchName: Cap-Vert
     countryFlag: {fileID: -4962477687571647339, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
-  - countryArrayName: 'Cambodia (KH) - MISS: ES, IT, FR'
+  - countryArrayName: Cambodia (KH)
     countryId: KH
     countryName:
-      spanishName: 
+      spanishName: Camboya
       englishName: Cambodia
-      italianName: 
-      frenchName: 
+      italianName: Cambogia
+      frenchName: Cambodge
     countryFlag: {fileID: 3091620813403862665, guid: 0e8d4a1ca2e3e4742b9c162cbd18a551, type: 3}
   - countryArrayName: 'Cameroon (CM) - MISS: ES, IT, FR'
     countryId: CM
