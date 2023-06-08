@@ -22,7 +22,7 @@ namespace YannickSCF.GeneralApp.Controller.Scenes {
         public delegate void ProgressEventDelegate(float progress);
         public event ProgressEventDelegate OnSceneLoadProgress;
 
-        [SerializeField] private List<SceneField> allScenes;
+        [SerializeField] private List<string> allScenes;
 
         private int c_sceneIndex = 0;
 
