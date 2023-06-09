@@ -22,7 +22,8 @@ namespace YannickSCF.GeneralApp.Controller.Scenes {
         public delegate void ProgressEventDelegate(float progress);
         public event ProgressEventDelegate OnSceneLoadProgress;
 
-        [SerializeField] private List<string> allScenes;
+        [SerializeField, ListToPopup(typeof(SceneController), "_popupList")] private List<string> allScenes;
+        private List<string> _popupList;
 
         private int c_sceneIndex = 0;
 

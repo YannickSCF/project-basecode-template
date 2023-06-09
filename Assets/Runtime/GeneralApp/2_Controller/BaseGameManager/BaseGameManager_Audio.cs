@@ -7,6 +7,7 @@
 using UnityEngine;
 /// Custom dependencies
 using YannickSCF.GeneralApp.Controller.Audio;
+using YannickSCF.GeneralApp.Scriptables.Audio;
 
 namespace YannickSCF.GeneralApp.GameManager {
     /// <summary>
@@ -14,13 +15,9 @@ namespace YannickSCF.GeneralApp.GameManager {
     /// This base game manager script refers only for AUDIO functionalities
     /// </summary>
     public partial class BaseGameManager {
-
+        
+        [Header("Audio Game Management parameters")]
         [SerializeField] protected BaseAudioController audioController;
-
-        #region Basic settings methods
-        public virtual void PlaySFX(AudioClip clip) {
-            audioController.PlaySFX(clip);
-        }
-        #endregion
+        [SerializeField] protected AudiosDatabase _audiosDatabase;
     }
 }

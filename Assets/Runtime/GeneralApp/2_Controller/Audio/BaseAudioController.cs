@@ -80,11 +80,9 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
             musicAudioSource.clip = clip;
             musicAudioSource.Play();
         }
-
         public void SoftPlayBackground(AudioClip clip) {
             StartCoroutine(SoftPlayBackgroundCoroutine(clip));
         }
-
         private IEnumerator SoftPlayBackgroundCoroutine(AudioClip clip) {
             if (!isBackgroundAlreadyChanging) {
                 isBackgroundAlreadyChanging = true;
@@ -111,6 +109,23 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
             }
         }
 
+        public void StopBackground() {
+            musicAudioSource.Stop();
+        }
+        public void SoftStopBackground() {
+            StartCoroutine(SoftStopBackgroundCoroutine());
+        }
+        private IEnumerator SoftStopBackgroundCoroutine() {
+            if (musicAudioSource.isPlaying) {
+                backgroundVolume = musicAudioSource.volume;
+                StartCoroutine(ChangeBackgroundVolume(backgroundVolumeDownCurve));
+                yield return new WaitForEndOfFrame();
+                yield return new WaitUntil(() => !backgroundVolumeIsChanging);
+            }
+
+            musicAudioSource.volume = 0;
+        }
+
         private IEnumerator ChangeBackgroundVolume(AnimationCurve volumeCurve) {
             backgroundVolumeIsChanging = true;
 
@@ -131,7 +146,7 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
         #endregion
 
         #region SFX Methods
-        public void SwitchMutesfxAudioSource() {
+        public void SwitchMutesSFXAudioSource() {
             sfxAudioSource.enabled = !sfxAudioSource.enabled;
         }
 
@@ -141,6 +156,10 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
 
         public void PlaySFX(AudioClip clip) {
             sfxAudioSource.PlayOneShot(clip);
+        }
+
+        public void StopSFX() {
+            sfxAudioSource.Stop();
         }
 
         public void RandomSoundSFX(AudioClip[] clips) {
