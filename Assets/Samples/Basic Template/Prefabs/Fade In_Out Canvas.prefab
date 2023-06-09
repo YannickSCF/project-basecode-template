@@ -410,7 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeView: {fileID: 7376009553033743029}
   initSceneFadedIn: 1
-  autoFadeOut: 0
+  autoFadeOut: 1
   initialFadeOut: 1
   defaultFadeInTime: 1
   defaultFadeOutTime: 1

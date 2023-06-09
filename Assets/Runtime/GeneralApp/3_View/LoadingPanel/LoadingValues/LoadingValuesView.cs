@@ -75,6 +75,8 @@ namespace YannickSCF.GeneralApp.View.LoadingPanel.LoadingValues {
         public void HideLoadingValues() {
             if (triggerCoroutine == null) {
                 triggerCoroutine = StartCoroutine(TriggerLoadingValues(false));
+            } else {
+                StartCoroutine(WaitAndTriggerLoadingValues(false));
             }
         }
         // Coroutine to show/hide the loading values
@@ -93,6 +95,12 @@ namespace YannickSCF.GeneralApp.View.LoadingPanel.LoadingValues {
 
             isShowingLoadingValues = show;
             triggerCoroutine = null;
+        }
+
+        private IEnumerator WaitAndTriggerLoadingValues(bool show) {
+            yield return new WaitUntil(() => triggerCoroutine == null);
+
+            triggerCoroutine = StartCoroutine(TriggerLoadingValues(false));
         }
         #endregion
 

@@ -128,17 +128,17 @@ namespace YannickSCF.GeneralApp.Controller.LoadingPanel {
         #region EDITOR METHODS
 #if UNITY_EDITOR
         [ContextMenu("Fade In and Out (default)")]
-        public void SimulateFadeInAndOut() {
+        internal void SimulateFadeInAndOut() {
             Debug.Log("Simulated Fade In and Out: " + FadeInAndOut());
         }
 
         [ContextMenu("Fade In (default)")]
-        public void SimulateFadeIn() {
+        internal void SimulateFadeIn() {
             Debug.Log("Simulated Fade In: " + FadeIn());
         }
 
         [ContextMenu("Fade Out (default)")]
-        public void SimulateFadeOut() {
+        internal void SimulateFadeOut() {
             Debug.Log("Simulated Fade Out: " + FadeOut());
         }
 #endif
