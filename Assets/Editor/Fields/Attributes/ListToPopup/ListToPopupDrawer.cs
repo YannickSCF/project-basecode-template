@@ -6,23 +6,34 @@
 
 /// Dependencies
 #if UNITY_EDITOR
+using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(ListToPopupAttribute))]
 public class ListToPopupDrawer : PropertyDrawer {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
-        ListToPopupAttribute atb = attribute as ListToPopupAttribute;
-        List<string> stringList = null;
+        ListToPopupAttribute attribute = this.attribute as ListToPopupAttribute;
+        Type type = property.serializedObject.targetObject.GetType();
+        FieldInfo field = type.GetField(
+            attribute.PropertyName,
+            BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance);
 
-        if (atb.MyType.GetField(atb.PropertyName) != null) {
-            stringList = atb.MyType.GetField(atb.PropertyName).GetValue(atb.MyType) as List<string>;
+        List<string> stringList = null;
+        if (field != null) {
+            stringList = field.GetValue(type) as List<string>;
         }
 
         if (stringList != null && stringList.Count > 0) {
+            string labelName = property.name;
+            if (field.FieldType.Equals(typeof(List<string>))) {
+                labelName = property.displayName;
+            }
+
             int selectedIndex = Mathf.Max(stringList.IndexOf(property.stringValue), 0);
-            selectedIndex = EditorGUI.Popup(position, property.name, selectedIndex, stringList.ToArray());
+            selectedIndex = EditorGUI.Popup(position, labelName, selectedIndex, stringList.ToArray());
             property.stringValue = stringList[selectedIndex];
         } else {
             EditorGUI.PropertyField(position, property, label);

@@ -10,11 +10,9 @@ using UnityEngine;
 
 public class ListToPopupAttribute : PropertyAttribute {
 
-    public Type MyType;
     public string PropertyName;
 
-    public ListToPopupAttribute(Type myType, string propertyName) {
-        MyType = myType;
+    public ListToPopupAttribute(string propertyName) {
         PropertyName = propertyName;
     }
 }

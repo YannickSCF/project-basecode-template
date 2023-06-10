@@ -152,9 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634a516706bc6cf4488b91139f4416f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allScenes:
+  _allScenes:
   - SampleScene
   - SecondScene
+  test: SecondScene
 --- !u!4 &2890507
 Transform:
   m_ObjectHideFlags: 0
@@ -333,6 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasUI: {fileID: 2046462915}
   audioController: {fileID: 166857373}
+  _audiosDatabase: {fileID: 11400000, guid: 7c544831d32e64f4983c87d2ba62dcde, type: 2}
   loadingController: {fileID: 124692849}
   sceneController: {fileID: 2890506}
   settingsController: {fileID: 999529112}

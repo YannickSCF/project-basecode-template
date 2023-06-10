@@ -13,7 +13,9 @@ using UnityEngine.SceneManagement;
 using YannickSCF.GeneralApp.Editor.Fields.Scene;
 
 namespace YannickSCF.GeneralApp.Controller.Scenes {
-    public class SceneController : MonoBehaviour {
+    public class SceneController : MonoBehaviour, ISerializationCallbackReceiver {
+
+        private static List<string> _popupList;
 
         public delegate void SimpleEventDelegate();
         public event SimpleEventDelegate OnSceneLoaded;
@@ -22,12 +24,12 @@ namespace YannickSCF.GeneralApp.Controller.Scenes {
         public delegate void ProgressEventDelegate(float progress);
         public event ProgressEventDelegate OnSceneLoadProgress;
 
-        [SerializeField, ListToPopup(typeof(SceneController), "_popupList")] private List<string> allScenes;
-        private List<string> _popupList;
+        [SerializeField, ListToPopup("_popupList")]
+        private List<string> _allScenes;
 
         private int c_sceneIndex = 0;
 
-        public string CurrentSceneName { get => allScenes[c_sceneIndex]; }
+        public string CurrentSceneName { get => _allScenes[c_sceneIndex]; }
         public int CurrentSceneIndex { get => c_sceneIndex; }
 
         #region Mono
@@ -54,10 +56,23 @@ namespace YannickSCF.GeneralApp.Controller.Scenes {
         }
         #endregion
 
+        #region ISerializationCallbackReceiver methods
+        public void OnBeforeSerialize() {
+            _popupList = new List<string>();
+
+            for(int i = 0; i < SceneManager.sceneCountInBuildSettings; ++i) {
+                string sceneName = System.IO.Path.GetFileNameWithoutExtension(
+                    SceneUtility.GetScenePathByBuildIndex(i));
+                _popupList.Add(sceneName);
+            }
+        }
+        public void OnAfterDeserialize() { }
+        #endregion
+
         public void LoadSceneByName(string sceneName, LoadSceneMode mode = LoadSceneMode.Single) {
-            for (int i = 0; i < allScenes.Count; ++i)
+            for (int i = 0; i < _allScenes.Count; ++i)
             {
-                if (allScenes[i] == sceneName)
+                if (_allScenes[i] == sceneName)
                 {
                     StartCoroutine(LoadScene(i, mode));
                     break;
