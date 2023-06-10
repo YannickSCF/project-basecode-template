@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd00f0d4693f2a441955d3f882cddfec, type: 3}
   m_Name: Audio Database
   m_EditorClassIdentifier: 
-  _allBackgroundMusic: []
+  _allBackgroundMusic:
+  - _clipName: Distant Galaxy
+    _clip: {fileID: 8300000, guid: 25f4fa99f9b6a944bac9e5159574e8c6, type: 3}
+  - _clipName: Astronaut
+    _clip: {fileID: 8300000, guid: 8dca1a53c84f5f847b2c449d42b0f171, type: 3}
   _allSFXSounds:
   - _clipName: Click-High
     _clip: {fileID: 8300000, guid: f5dfe90949ad90b46b3fc36a0f809ef9, type: 3}
