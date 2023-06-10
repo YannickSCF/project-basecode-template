@@ -1,3 +1,16 @@
 {
-	"name": "yannickscf.Runtime.GeneralApp.Scriptables"
+    "name": "yannickscf.Runtime.GeneralApp.Scriptables",
+    "rootNamespace": "",
+    "references": [
+        "GUID:57aceb93e943b3a48b90c3b7039ece0c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

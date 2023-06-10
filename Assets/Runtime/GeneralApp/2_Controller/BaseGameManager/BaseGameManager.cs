@@ -13,5 +13,15 @@ namespace YannickSCF.GeneralApp.GameManager {
     public partial class BaseGameManager : GlobalSingleton<BaseGameManager> {
 
         [SerializeField] protected GameObject canvasUI;
+
+        #region Mono
+        protected virtual void OnEnable() {
+            AddAudioListeners();
+        }
+
+        protected virtual void OnDisable() {
+            RemoveAudioListeners();
+        }
+        #endregion
     }
 }

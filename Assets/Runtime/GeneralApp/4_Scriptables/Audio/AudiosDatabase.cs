@@ -20,6 +20,20 @@ namespace YannickSCF.GeneralApp.Scriptables.Audio {
         [Header("SFX sounds list")]
         [SerializeField] private List<AudiosData> _allSFXSounds;
 
+        #region Mono
+        private void OnValidate() {
+            List<string> bgMusics = new List<string>();
+            bgMusics.Add("None");
+            bgMusics.AddRange(GetAllBackgroundMusicNames());
+            AudioConstants.musicOptions = bgMusics;
+
+            List<string> sfxSounds = new List<string>();
+            sfxSounds.Add("None");
+            sfxSounds.AddRange(GetAllSFXSoundNames());
+            AudioConstants.soundsOptions = sfxSounds;
+        }
+        #endregion
+
         public AudioClip GetBackgroundMusic(string backgroundMusicName) {
             return _allBackgroundMusic.FirstOrDefault(x => x.ClipName.Equals(backgroundMusicName)).Clip;
         }
