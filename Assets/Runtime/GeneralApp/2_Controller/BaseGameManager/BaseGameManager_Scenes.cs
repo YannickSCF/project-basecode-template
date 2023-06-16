@@ -17,7 +17,6 @@ namespace YannickSCF.GeneralApp.GameManager {
     /// </summary>
     public partial class BaseGameManager {
 
-        [SerializeField] protected LoadingPanelController loadingController;
         [SerializeField] protected SceneController sceneController;
 
         protected int sceneToGo = 0;
@@ -28,14 +27,14 @@ namespace YannickSCF.GeneralApp.GameManager {
             sceneToGo = c_sceneToGo;
             showProgress = _showProgress;
 
-            loadingController.FadeIn();
+            _uiManager.LoadingController.FadeIn();
 
             LoadingPanelViewEvents.OnFadeInFinished += ChangeSingleSceneOnFadeInFinished;
         }
 
         protected virtual void ChangeSingleSceneOnFadeInFinished() {
-            loadingController.ShowLoadingValues(true, showProgress);
-            if (showProgress) sceneController.OnSceneLoadProgress += loadingController.UpdateProgressBar;
+            _uiManager.LoadingController.ShowLoadingValues(true, showProgress);
+            if (showProgress) sceneController.OnSceneLoadProgress += _uiManager.LoadingController.UpdateProgressBar;
 
             sceneController.LoadSceneByIndex(sceneToGo);
 
@@ -44,9 +43,9 @@ namespace YannickSCF.GeneralApp.GameManager {
         }
 
         protected virtual void SceneLoaded() {
-            loadingController.FadeOut();
+            _uiManager.LoadingController.FadeOut();
 
-            if (showProgress) sceneController.OnSceneLoadProgress -= loadingController.UpdateProgressBar;
+            if (showProgress) sceneController.OnSceneLoadProgress -= _uiManager.LoadingController.UpdateProgressBar;
             sceneController.OnSceneLoaded -= SceneLoaded;
             sceneToGo = 0;
         }

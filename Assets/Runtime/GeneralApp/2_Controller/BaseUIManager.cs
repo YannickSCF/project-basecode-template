@@ -8,17 +8,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// Custom Dependencies
+using YannickSCF.GeneralApp.Controller.LoadingPanel;
 
 namespace YannickSCF.GeneralApp.UIManager {
     public class BaseUIManager : MonoBehaviour {
-        // Start is called before the first frame update
-        void Start() {
 
-        }
+        [SerializeField] protected LoadingPanelController _loadingController;
+        [SerializeField] protected Transform _mainUIGameObject;
 
-        // Update is called once per frame
-        void Update() {
+        public LoadingPanelController LoadingController { get => _loadingController; }
+        public Transform MainUIGameObject { get => _mainUIGameObject; }
 
-        }
+        // TODO: Queda teerminar mas o menos el UI Manager y popups manager
     }
 }

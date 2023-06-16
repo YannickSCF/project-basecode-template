@@ -331,10 +331,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5dbffe2172b5e4185c6eb58d046fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasUI: {fileID: 2046462915}
+  _uiManager: {fileID: 2046462920}
   audioController: {fileID: 166857373}
   _audiosDatabase: {fileID: 11400000, guid: 7c544831d32e64f4983c87d2ba62dcde, type: 2}
-  loadingController: {fileID: 124692849}
   sceneController: {fileID: 2890506}
   settingsController: {fileID: 999529112}
 --- !u!1 &265392720
@@ -690,13 +689,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637622914}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 397578646}
-  m_Father: {fileID: 2046462916}
+  m_Father: {fileID: 2008242477}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -754,7 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe166430a491644b840a785a6b340a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: Click-Low
+  soundToPlay: None
 --- !u!114 &637622920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,6 +1070,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2008242476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008242477}
+  m_Layer: 0
+  m_Name: Main UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2008242477
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008242476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 637622915}
+  m_Father: {fileID: 2046462916}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2046462915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,11 +1116,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2046462916}
+  - component: {fileID: 2046462920}
   - component: {fileID: 2046462919}
   - component: {fileID: 2046462918}
   - component: {fileID: 2046462917}
   m_Layer: 0
-  m_Name: CanvasUI
+  m_Name: UI Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1102,7 +1139,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 637622915}
+  - {fileID: 2008242477}
   - {fileID: 124692848}
   m_Father: {fileID: 184129266}
   m_RootOrder: 1
@@ -1173,6 +1210,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2046462920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046462915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfab8ed70dbece4f8e5d1a25badc90c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadingController: {fileID: 124692849}
+  _mainUIGameObject: {fileID: 2008242477}
 --- !u!1001 &7376009553213061202
 PrefabInstance:
   m_ObjectHideFlags: 0
