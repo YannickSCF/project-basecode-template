@@ -6,7 +6,7 @@
 /// Dependencies
 using UnityEngine;
 
-namespace YannickSCF.GeneralApp.Controller.LoadingPanel {
+namespace YannickSCF.GeneralApp.Controller.UI.LoadingPanel {
     /// <summary>
     /// Loading Panel controller (partial-base).
     /// </summary>

@@ -20,7 +20,7 @@ namespace YannickSCF.GeneralApp.Scriptables.Audio {
         [Header("SFX sounds list")]
         [SerializeField] private List<AudiosData> _allSFXSounds;
 
-        #region Mono
+        #region Scriptable
         private void OnValidate() {
             List<string> bgMusics = new List<string>();
             bgMusics.Add("None");

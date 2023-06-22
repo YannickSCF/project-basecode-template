@@ -3,7 +3,7 @@
  * Created:     11/02/2023
  **/
 
-namespace YannickSCF.GeneralApp.View.LoadingPanel.Events {
+namespace YannickSCF.GeneralApp.View.UI.LoadingPanel.Events {
     /// <summary>
     /// Simple event class oriented to notify <b>FADE IN</b> and <b> FADE OUT</b> important events.<br/>
     /// In this case there are only two important events for each functionality:<br/>

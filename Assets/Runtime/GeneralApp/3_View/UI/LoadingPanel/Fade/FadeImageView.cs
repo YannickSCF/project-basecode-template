@@ -7,7 +7,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace YannickSCF.GeneralApp.View.LoadingPanel.Fade {
+namespace YannickSCF.GeneralApp.View.UI.LoadingPanel.Fade {
     public class FadeImageView : FadeView {
 
         [Header("Fade In/Out Image")]

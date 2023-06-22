@@ -8,9 +8,9 @@ using System;
 using System.Collections;
 using UnityEngine;
 /// Custom dependencies
-using YannickSCF.GeneralApp.View.LoadingPanel.Fade;
+using YannickSCF.GeneralApp.View.UI.LoadingPanel.Fade;
 
-namespace YannickSCF.GeneralApp.Controller.LoadingPanel {
+namespace YannickSCF.GeneralApp.Controller.UI.LoadingPanel {
     /// <summary>
     /// Loading Panel controller (partial).
     /// This loading panel script refers only for FADE functionalities

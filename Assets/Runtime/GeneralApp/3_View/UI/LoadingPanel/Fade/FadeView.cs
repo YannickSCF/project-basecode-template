@@ -7,9 +7,9 @@
 using System.Collections;
 using UnityEngine;
 /// Custom dependencies
-using YannickSCF.GeneralApp.View.LoadingPanel.Events;
+using YannickSCF.GeneralApp.View.UI.LoadingPanel.Events;
 
-namespace YannickSCF.GeneralApp.View.LoadingPanel.Fade {
+namespace YannickSCF.GeneralApp.View.UI.LoadingPanel.Fade {
     public abstract class FadeView : MonoBehaviour {
 
         protected bool isFadingIn = false;

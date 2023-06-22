@@ -6,7 +6,7 @@
 /// Dependencies
 using UnityEngine;
 
-namespace YannickSCF.GeneralApp.View.LoadingPanel.Fade {
+namespace YannickSCF.GeneralApp.View.UI.LoadingPanel.Fade {
     public class FadeVolumeView : FadeView {
 
         // TODO: All showTextUpdates class

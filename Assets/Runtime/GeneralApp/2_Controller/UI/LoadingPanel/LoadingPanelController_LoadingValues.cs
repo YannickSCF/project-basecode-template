@@ -9,9 +9,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// Custom dependencies
-using YannickSCF.GeneralApp.View.LoadingPanel.LoadingValues;
+using YannickSCF.GeneralApp.View.UI.LoadingPanel.LoadingValues;
 
-namespace YannickSCF.GeneralApp.Controller.LoadingPanel {
+namespace YannickSCF.GeneralApp.Controller.UI.LoadingPanel {
     /// <summary>
     /// Loading Panel controller (partial).
     /// This loading panel script refers only for loading values functionalities

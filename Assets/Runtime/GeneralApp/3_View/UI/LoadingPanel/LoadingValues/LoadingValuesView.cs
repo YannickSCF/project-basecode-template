@@ -8,7 +8,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace YannickSCF.GeneralApp.View.LoadingPanel.LoadingValues {
+namespace YannickSCF.GeneralApp.View.UI.LoadingPanel.LoadingValues {
     public class LoadingValuesView : MonoBehaviour {
 
         [Header("Loading values components")]

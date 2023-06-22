@@ -25,7 +25,7 @@ namespace YannickSCF.GeneralApp.GameManager {
 
         #region Basic settings methods
         public void OpenSettingsView() {
-            settingsController.OpenSettingsView(_uiManager.MainUIGameObject);
+            settingsController.OpenSettingsView(uiManager.UIDisplay);
         }
 
         public void CloseSettingsView() {

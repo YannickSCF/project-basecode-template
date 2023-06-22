@@ -6,7 +6,7 @@
 /// Dependencies
 using UnityEngine;
 /// Custom dependencies
-using YannickSCF.GeneralApp.UIManager;
+using YannickSCF.GeneralApp.Controller.UI;
 
 namespace YannickSCF.GeneralApp.GameManager {
     /// <summary>
@@ -14,7 +14,9 @@ namespace YannickSCF.GeneralApp.GameManager {
     /// </summary>
     public partial class BaseGameManager : GlobalSingleton<BaseGameManager> {
 
-        [SerializeField] protected BaseUIManager _uiManager;
+        [SerializeField] protected BaseUIController uiManager;
+
+        public BaseUIController UiManager { get => uiManager; }
 
         #region Mono
         protected virtual void OnEnable() {
