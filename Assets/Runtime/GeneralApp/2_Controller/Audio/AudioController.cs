@@ -7,31 +7,31 @@
 using System.Collections;
 using UnityEngine;
 /// Custom dependencies
-//using YannickSCF.GeneralApp.View.Settings.Events;
+using YannickSCF.GeneralApp.Scriptables.Audio;
+using YannickSCF.GeneralApp.View.ComponentTools.SoundButton;
 
 namespace YannickSCF.GeneralApp.Controller.Audio {
-    public class BaseAudioController : MonoBehaviour {
+    public class AudioController : MonoBehaviour {
+
+        [SerializeField] private AudiosDatabase _audiosDatabase;
 
         [SerializeField] protected AudioSource musicAudioSource;
         [SerializeField] protected AudioSource sfxAudioSource;
 
-        [SerializeField] private AnimationCurve backgroundVolumeDownCurve;
-        [SerializeField] private AnimationCurve backgroundVolumeUpCurve;
+        [SerializeField] private AnimationCurve _backgroundVolumeDownCurve;
+        [SerializeField] private AnimationCurve _backgroundVolumeUpCurve;
 
-        private bool backgroundVolumeIsChanging = false;
-        private bool isBackgroundAlreadyChanging = false;
+        private bool _backgroundVolumeIsChanging = false;
+        private bool _isBackgroundAlreadyChanging = false;
 
-        private float backgroundVolume = 1f;
+        private float _backgroundVolume = 1f;
 
         #region Mono
         protected virtual void OnEnable() {
-            //BaseSettingsViewEvents.OnSourceMuted += MuteSource;
-            //BaseSettingsViewEvents.OnVolumeChanged += SetGeneralVolume;
+            SoundForButton.OnSoundButtonClicked += PlaySFX;
         }
-
         protected virtual void OnDisable() {
-            //BaseSettingsViewEvents.OnSourceMuted -= MuteSource;
-            //BaseSettingsViewEvents.OnVolumeChanged -= SetGeneralVolume;
+            SoundForButton.OnSoundButtonClicked -= PlaySFX;
         }
         #endregion
 
@@ -76,33 +76,38 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
         #endregion
 
         #region Background music Methods
-        public void PlayBackground(AudioClip clip) {
-            musicAudioSource.clip = clip;
-            musicAudioSource.Play();
+        public void PlayBackground(string backgroundClipName) {
+            AudioClip backgroundClip = _audiosDatabase.GetBackgroundMusic(backgroundClipName);
+            if (backgroundClip != null) {
+                musicAudioSource.clip = backgroundClip;
+                musicAudioSource.Play();
+            } else {
+                Debug.LogWarning($"Clip '{backgroundClipName}' is not stored in database!");
+            }
         }
-        public void SoftPlayBackground(AudioClip clip) {
-            StartCoroutine(SoftPlayBackgroundCoroutine(clip));
+        public void SoftPlayBackground(string backgroundClipName) {
+            StartCoroutine(SoftPlayBackgroundCoroutine(backgroundClipName));
         }
-        private IEnumerator SoftPlayBackgroundCoroutine(AudioClip clip) {
-            if (!isBackgroundAlreadyChanging) {
-                isBackgroundAlreadyChanging = true;
+        private IEnumerator SoftPlayBackgroundCoroutine(string backgroundClipName) {
+            if (!_isBackgroundAlreadyChanging) {
+                _isBackgroundAlreadyChanging = true;
 
                 if (musicAudioSource.isPlaying) {
-                    backgroundVolume = musicAudioSource.volume;
-                    StartCoroutine(ChangeBackgroundVolume(backgroundVolumeDownCurve));
+                    _backgroundVolume = musicAudioSource.volume;
+                    StartCoroutine(ChangeBackgroundVolume(_backgroundVolumeDownCurve));
                     yield return new WaitForEndOfFrame();
-                    yield return new WaitUntil(() => !backgroundVolumeIsChanging);
+                    yield return new WaitUntil(() => !_backgroundVolumeIsChanging);
                 }
 
                 musicAudioSource.volume = 0;
-                PlayBackground(clip);
+                PlayBackground(backgroundClipName);
 
-                StartCoroutine(ChangeBackgroundVolume(backgroundVolumeUpCurve));
+                StartCoroutine(ChangeBackgroundVolume(_backgroundVolumeUpCurve));
                 yield return new WaitForEndOfFrame();
-                yield return new WaitUntil(() => !backgroundVolumeIsChanging);
-                musicAudioSource.volume = backgroundVolume;
+                yield return new WaitUntil(() => !_backgroundVolumeIsChanging);
+                musicAudioSource.volume = _backgroundVolume;
 
-                isBackgroundAlreadyChanging = false;
+                _isBackgroundAlreadyChanging = false;
                 Debug.Log("Music Changed"); //Aadir evento
             } else {
                 Debug.Log("No se puede cambiar"); // Aadir warning
@@ -117,19 +122,19 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
         }
         private IEnumerator SoftStopBackgroundCoroutine() {
             if (musicAudioSource.isPlaying) {
-                backgroundVolume = musicAudioSource.volume;
-                StartCoroutine(ChangeBackgroundVolume(backgroundVolumeDownCurve));
+                _backgroundVolume = musicAudioSource.volume;
+                StartCoroutine(ChangeBackgroundVolume(_backgroundVolumeDownCurve));
                 yield return new WaitForEndOfFrame();
-                yield return new WaitUntil(() => !backgroundVolumeIsChanging);
+                yield return new WaitUntil(() => !_backgroundVolumeIsChanging);
             }
 
             musicAudioSource.volume = 0;
         }
 
         private IEnumerator ChangeBackgroundVolume(AnimationCurve volumeCurve) {
-            backgroundVolumeIsChanging = true;
+            _backgroundVolumeIsChanging = true;
 
-            float maxVolume = backgroundVolume;
+            float maxVolume = _backgroundVolume;
 
             Keyframe[] volumeKeysCurve = volumeCurve.keys;
             float time = volumeKeysCurve[0].time;
@@ -141,7 +146,7 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
                 yield return new WaitForEndOfFrame();
             }
 
-            backgroundVolumeIsChanging = false;
+            _backgroundVolumeIsChanging = false;
         }
         #endregion
 
@@ -154,8 +159,13 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
             sfxAudioSource.volume = value;
         }
 
-        public void PlaySFX(AudioClip clip) {
-            sfxAudioSource.PlayOneShot(clip);
+        public void PlaySFX(string clipName) {
+            AudioClip clip = _audiosDatabase.GetSFXSound(clipName);
+            if (clip != null) {
+                sfxAudioSource.PlayOneShot(clip);
+            } else {
+                Debug.LogWarning($"Clip '{clipName}' is not stored in database!");
+            }
         }
 
         public void StopSFX() {

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 2890507}
   - component: {fileID: 2890506}
   m_Layer: 0
-  m_Name: SceneController
+  m_Name: Scene Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,6 +186,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba988fb23daf57b48bef0f67d5544d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &148748540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148748541}
+  m_Layer: 0
+  m_Name: Hidden Windows Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &148748541
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148748540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008242477}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &166857371
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +233,7 @@ GameObject:
   - component: {fileID: 166857372}
   - component: {fileID: 166857373}
   m_Layer: 0
-  m_Name: AudioController
+  m_Name: Audio Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,7 +329,7 @@ GameObject:
   - component: {fileID: 184129266}
   - component: {fileID: 184129267}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Base Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +351,6 @@ Transform:
   - {fileID: 2046462916}
   - {fileID: 2890507}
   - {fileID: 166857372}
-  - {fileID: 999529111}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -331,11 +366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5dbffe2172b5e4185c6eb58d046fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiManager: {fileID: 2046462920}
-  audioController: {fileID: 166857373}
-  _audiosDatabase: {fileID: 11400000, guid: 7c544831d32e64f4983c87d2ba62dcde, type: 2}
-  sceneController: {fileID: 2890506}
-  settingsController: {fileID: 999529112}
+  _baseUIController: {fileID: 0}
+  AudioController: {fileID: 0}
+  AudiosDatabase: {fileID: 0}
+  SceneController: {fileID: 0}
 --- !u!1 &265392720
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +684,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &849277757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 849277758}
+  m_Layer: 0
+  m_Name: Windows Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &849277758
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849277757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2008242477}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &909682719
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,51 +848,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &999529110
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 999529111}
-  - component: {fileID: 999529112}
-  m_Layer: 0
-  m_Name: SettingsController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &999529111
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999529110}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 184129266}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &999529112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 999529110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1cafd45d39908a409eb7d06779028d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settingsViewPrefab: {fileID: 1560867488145043426, guid: 1924b1bf0f71cf440a11f884879fda39, type: 3}
 --- !u!1 &1092458088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,8 +1094,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2008242477}
+  - component: {fileID: 2008242478}
   m_Layer: 0
-  m_Name: UI Display
+  m_Name: Windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1087,7 +1113,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 849277758}
+  - {fileID: 148748541}
   m_Father: {fileID: 2046462916}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1096,6 +1124,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2008242478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008242476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958fd9bea683f01489164b31234822f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _windowsDatabase: {fileID: 0}
+  _windowsDisplay: {fileID: 849277758}
+  _hiddenWindowsDisplay: {fileID: 148748541}
 --- !u!1 &2046462915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1153,7 @@ GameObject:
   - component: {fileID: 2046462918}
   - component: {fileID: 2046462917}
   m_Layer: 0
-  m_Name: UI Manager
+  m_Name: Base UI Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1212,9 +1255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfab8ed70dbece4f8e5d1a25badc90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loadingController: {fileID: 124692849}
+  _windowsController: {fileID: 2008242478}
   _popupsController: {fileID: 1112913176}
-  _uIDisplay: {fileID: 2008242477}
+  _loadingController: {fileID: 124692849}
 --- !u!1001 &7376009553213061202
 PrefabInstance:
   m_ObjectHideFlags: 0

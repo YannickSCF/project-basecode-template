@@ -4,13 +4,10 @@
  **/
 
 /// Dependencies
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-/// Custom dependencies
-using YannickSCF.GeneralApp.Editor.Fields.Scene;
 
 namespace YannickSCF.GeneralApp.Controller.Scenes {
     public class SceneController : MonoBehaviour, ISerializationCallbackReceiver {

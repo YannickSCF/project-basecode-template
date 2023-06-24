@@ -10,7 +10,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace YannickSCF.GeneralApp.Scriptables.Popup {
-    [CreateAssetMenu(fileName = "Popup Database", menuName = "Scriptable Objects/YannickSCF/Popup Database")]
+    [CreateAssetMenu(fileName = "Popup Database", menuName = "Scriptable Objects/YannickSCF/Popups Database")]
     public class PopupDatabase : ScriptableObject {
 
         [Header("Popups list")]

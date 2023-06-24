@@ -7,24 +7,26 @@
 using UnityEngine;
 /// Custom dependencies
 using YannickSCF.GeneralApp.Controller.Scenes;
+using YannickSCF.GeneralApp.Controller.UI;
 using YannickSCF.GeneralApp.View.UI.LoadingPanel.Events;
 
-namespace YannickSCF.GeneralApp.GameManager {
+namespace YannickSCF.GeneralApp.Controller {
     /// <summary>
-    /// Base Game Manager (partial).
-    /// This base game manager script refers only for SCENE functionalities
+    /// Base Game Manager.
+    /// This base game manager script has basic functionalities for scene management
     /// </summary>
-    public partial class BaseGameManager {
+    public class BaseGameManager {
 
+        [SerializeField] protected UIController UIController;
         [SerializeField] protected SceneController SceneController;
 
-        protected int sceneToGo = 0;
-        protected bool showProgress = false;
+        protected int _sceneToGo = 0;
+        protected bool _showProgress = false;
 
         #region Load single scenes methods
-        public virtual void ChangeSingleScene(int c_sceneToGo, bool _showProgress = false) {
-            sceneToGo = c_sceneToGo;
-            showProgress = _showProgress;
+        public virtual void ChangeSingleScene(int sceneToGo, bool showProgress = false) {
+            _sceneToGo = sceneToGo;
+            _showProgress = showProgress;
 
             UIController.LoadingController.FadeIn();
 
@@ -32,10 +34,10 @@ namespace YannickSCF.GeneralApp.GameManager {
         }
 
         protected virtual void ChangeSingleSceneOnFadeInFinished() {
-            UIController.LoadingController.ShowLoadingValues(true, showProgress);
-            if (showProgress) SceneController.OnSceneLoadProgress += UIController.LoadingController.UpdateProgressBar;
+            UIController.LoadingController.ShowLoadingValues(true, _showProgress);
+            if (_showProgress) SceneController.OnSceneLoadProgress += UIController.LoadingController.UpdateProgressBar;
 
-            SceneController.LoadSceneByIndex(sceneToGo);
+            SceneController.LoadSceneByIndex(_sceneToGo);
 
             LoadingPanelViewEvents.OnFadeInFinished -= ChangeSingleSceneOnFadeInFinished;
             SceneController.OnSceneLoaded += SceneLoaded;
@@ -44,9 +46,9 @@ namespace YannickSCF.GeneralApp.GameManager {
         protected virtual void SceneLoaded() {
             UIController.LoadingController.FadeOut();
 
-            if (showProgress) SceneController.OnSceneLoadProgress -= UIController.LoadingController.UpdateProgressBar;
+            if (_showProgress) SceneController.OnSceneLoadProgress -= UIController.LoadingController.UpdateProgressBar;
             SceneController.OnSceneLoaded -= SceneLoaded;
-            sceneToGo = 0;
+            _sceneToGo = 0;
         }
         #endregion
 
