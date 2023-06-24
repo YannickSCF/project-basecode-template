@@ -17,12 +17,6 @@ namespace YannickSCF.GeneralApp.GameManager {
 
         [SerializeField] protected BaseSettingsController settingsController;
 
-        private void Update() {
-            if (Input.GetKeyUp(KeyCode.Escape)) {
-                OpenSettingsView();
-            }
-        }
-
         #region Basic settings methods
         public void OpenSettingsView() {
             settingsController.OpenSettingsView(uiManager.UIDisplay);
