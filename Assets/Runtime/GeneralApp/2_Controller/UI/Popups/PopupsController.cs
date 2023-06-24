@@ -13,7 +13,7 @@ using YannickSCF.GeneralApp.Scriptables.Popup;
 using YannickSCF.GeneralApp.View.UI.Popups;
 
 namespace YannickSCF.GeneralApp.Controller.UI.Popups {
-    public class PopupsController : MonoBehaviour {
+    public sealed class PopupsController : MonoBehaviour {
 
         [Header("Database")]
         [SerializeField] private PopupDatabase _popupsDatabase;
@@ -33,7 +33,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
         private Coroutine _backgroundCoroutine = null;
 
         #region Mono
-        protected virtual void Awake() {
+        private void Awake() {
             _popupsVisible = new Dictionary<string, PopupView>();
             _popupsHidden = new Dictionary<string, PopupView>();
 

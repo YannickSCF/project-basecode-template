@@ -15,11 +15,11 @@ using YannickSCF.GeneralApp.View.UI.Popups;
 using YannickSCF.GeneralApp.View.UI.Windows;
 
 namespace YannickSCF.GeneralApp.Controller.UI {
-    public class UIController : MonoBehaviour {
+    public class BaseUIController : MonoBehaviour {
 
         [Header("Main UI Controllers")]
-        [SerializeField] private WindowsController _windowsController;
-        [SerializeField] private PopupsController _popupsController;
+        [SerializeField] protected WindowsController WindowsController;
+        [SerializeField] protected PopupsController PopupsController;
         [Header("Basic Fade In/Out Controller")]
         [SerializeField] private LoadingPanelController _loadingController;
 
@@ -27,28 +27,28 @@ namespace YannickSCF.GeneralApp.Controller.UI {
 
         #region Methods for popups
         public virtual PopupView ShowPopup(string popupId) {
-            return _popupsController.ShowPopup(popupId);
+            return PopupsController.ShowPopup(popupId);
         }
 
         public virtual void HidePopup(string popupId) {
-            _popupsController.HidePopup(popupId);
+            PopupsController.HidePopup(popupId);
         }
 
         public virtual void ClosePopup(string popupId) {
-            _popupsController.ClosePopup(popupId);
+            PopupsController.ClosePopup(popupId);
         }
         #endregion
 
         public virtual WindowsView ShowView(string windowId) {
-            return _windowsController.ShowWindow(windowId);
+            return WindowsController.ShowWindow(windowId);
         }
 
         public virtual void HideView(string windowId) {
-            _windowsController.HideWindow(windowId);
+            WindowsController.HideWindow(windowId);
         }
 
         public virtual void CloseView(string windowId) {
-            _windowsController.CloseWindow(windowId);
+            WindowsController.CloseWindow(windowId);
         }
     }
 }

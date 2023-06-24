@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace YannickSCF.GeneralApp.Controller.Scenes {
-    public class SceneController : MonoBehaviour, ISerializationCallbackReceiver {
+    public sealed class SceneController : MonoBehaviour, ISerializationCallbackReceiver {
 
         private static List<string> _popupList;
 

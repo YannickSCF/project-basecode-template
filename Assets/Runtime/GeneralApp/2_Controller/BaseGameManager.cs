@@ -17,7 +17,7 @@ namespace YannickSCF.GeneralApp.Controller {
     /// </summary>
     public class BaseGameManager : GlobalSingleton<BaseGameManager> {
 
-        [SerializeField] protected UIController UIController;
+        [SerializeField] protected BaseUIController UIController;
         [SerializeField] protected SceneController SceneController;
 
         protected int _sceneToGo = 0;

@@ -11,7 +11,7 @@ using YannickSCF.GeneralApp.View.UI.Windows;
 using YannickSCF.GeneralApp.Scriptables.Window;
 
 namespace YannickSCF.GeneralApp.Controller.UI.Windows {
-    public class WindowsController : MonoBehaviour {
+    public sealed class WindowsController : MonoBehaviour {
 
         [Header("Database")]
         [SerializeField] private WindowsDatabase _windowsDatabase;
@@ -24,7 +24,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
         private Dictionary<string, WindowsView> _windowsHidden;
 
         #region Mono
-        protected virtual void Awake() {
+        private void Awake() {
             _windowsVisible = new Dictionary<string, WindowsView>();
             _windowsHidden = new Dictionary<string, WindowsView>();
         }
