@@ -16,7 +16,7 @@ namespace YannickSCF.GeneralApp.GameManager {
     /// </summary>
     public partial class BaseGameManager {
 
-        [SerializeField] protected SceneController sceneController;
+        [SerializeField] protected SceneController SceneController;
 
         protected int sceneToGo = 0;
         protected bool showProgress = false;
@@ -26,37 +26,37 @@ namespace YannickSCF.GeneralApp.GameManager {
             sceneToGo = c_sceneToGo;
             showProgress = _showProgress;
 
-            uiManager.LoadingController.FadeIn();
+            UIController.LoadingController.FadeIn();
 
             LoadingPanelViewEvents.OnFadeInFinished += ChangeSingleSceneOnFadeInFinished;
         }
 
         protected virtual void ChangeSingleSceneOnFadeInFinished() {
-            uiManager.LoadingController.ShowLoadingValues(true, showProgress);
-            if (showProgress) sceneController.OnSceneLoadProgress += uiManager.LoadingController.UpdateProgressBar;
+            UIController.LoadingController.ShowLoadingValues(true, showProgress);
+            if (showProgress) SceneController.OnSceneLoadProgress += UIController.LoadingController.UpdateProgressBar;
 
-            sceneController.LoadSceneByIndex(sceneToGo);
+            SceneController.LoadSceneByIndex(sceneToGo);
 
             LoadingPanelViewEvents.OnFadeInFinished -= ChangeSingleSceneOnFadeInFinished;
-            sceneController.OnSceneLoaded += SceneLoaded;
+            SceneController.OnSceneLoaded += SceneLoaded;
         }
 
         protected virtual void SceneLoaded() {
-            uiManager.LoadingController.FadeOut();
+            UIController.LoadingController.FadeOut();
 
-            if (showProgress) sceneController.OnSceneLoadProgress -= uiManager.LoadingController.UpdateProgressBar;
-            sceneController.OnSceneLoaded -= SceneLoaded;
+            if (showProgress) SceneController.OnSceneLoadProgress -= UIController.LoadingController.UpdateProgressBar;
+            SceneController.OnSceneLoaded -= SceneLoaded;
             sceneToGo = 0;
         }
         #endregion
 
         #region Load/Unload additive scenes
         public virtual void AddAdditiveScene(int c_sceneToGo) {
-            sceneController.LoadSceneByIndex(c_sceneToGo, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+            SceneController.LoadSceneByIndex(c_sceneToGo, UnityEngine.SceneManagement.LoadSceneMode.Additive);
         }
 
         public virtual void RemoveAdditiveScene(int c_sceneToGo) {
-            sceneController.UnloadSceneByIndex(c_sceneToGo);
+            SceneController.UnloadSceneByIndex(c_sceneToGo);
         }
         #endregion
     }

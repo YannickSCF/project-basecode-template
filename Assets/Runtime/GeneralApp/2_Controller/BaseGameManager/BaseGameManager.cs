@@ -14,9 +14,9 @@ namespace YannickSCF.GeneralApp.GameManager {
     /// </summary>
     public partial class BaseGameManager : GlobalSingleton<BaseGameManager> {
 
-        [SerializeField] protected BaseUIController uiManager;
+        [SerializeField] private BaseUIController _uIController;
 
-        public BaseUIController UiManager { get => uiManager; }
+        public BaseUIController UIController { get => _uIController; }
 
         #region Mono
         protected virtual void OnEnable() {

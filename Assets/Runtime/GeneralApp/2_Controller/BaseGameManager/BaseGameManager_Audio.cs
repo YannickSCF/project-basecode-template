@@ -18,8 +18,8 @@ namespace YannickSCF.GeneralApp.GameManager {
     public partial class BaseGameManager {
         
         [Header("Audio Game Management parameters")]
-        [SerializeField] protected BaseAudioController audioController;
-        [SerializeField] protected AudiosDatabase _audiosDatabase;
+        [SerializeField] protected BaseAudioController AudioController;
+        [SerializeField] protected AudiosDatabase AudiosDatabase;
 
         #region Methods for Mono (in BaseGameManager)
         protected void AddAudioListeners() {
@@ -33,9 +33,9 @@ namespace YannickSCF.GeneralApp.GameManager {
 
         #region Event listeners methods
         private void PlayButtonSound(string clipName) {
-            AudioClip clip = _audiosDatabase.GetSFXSound(clipName);
+            AudioClip clip = AudiosDatabase.GetSFXSound(clipName);
             if (clip != null) {
-                audioController.PlaySFX(clip);
+                AudioController.PlaySFX(clip);
             } else {
                 Debug.LogWarning($"Clip '{clipName}' is not stored in database!");
             }

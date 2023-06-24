@@ -15,11 +15,11 @@ namespace YannickSCF.GeneralApp.Controller.UI {
     public class BaseUIController : MonoBehaviour {
 
         [Header("Main Controllers")]
-        [SerializeField] protected LoadingPanelController _loadingController;
-        [SerializeField] protected PopupsController _popupsController;
+        [SerializeField] private LoadingPanelController _loadingController;
+        [SerializeField] private PopupsController _popupsController;
 
         [Header("Main Controllers")]
-        [SerializeField] protected Transform _uIDisplay;
+        [SerializeField] private Transform _uIDisplay;
 
         public LoadingPanelController LoadingController { get => _loadingController; }
         public PopupsController PopupsController { get => _popupsController; }
