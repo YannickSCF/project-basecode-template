@@ -7,7 +7,7 @@
 using System.Collections;
 using UnityEngine;
 /// Custom dependencies
-using YannickSCF.GeneralApp.View.Settings.Events;
+//using YannickSCF.GeneralApp.View.Settings.Events;
 
 namespace YannickSCF.GeneralApp.Controller.Audio {
     public class BaseAudioController : MonoBehaviour {
@@ -25,13 +25,13 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
 
         #region Mono
         protected virtual void OnEnable() {
-            BaseSettingsViewEvents.OnSourceMuted += MuteSource;
-            BaseSettingsViewEvents.OnVolumeChanged += SetGeneralVolume;
+            //BaseSettingsViewEvents.OnSourceMuted += MuteSource;
+            //BaseSettingsViewEvents.OnVolumeChanged += SetGeneralVolume;
         }
 
         protected virtual void OnDisable() {
-            BaseSettingsViewEvents.OnSourceMuted -= MuteSource;
-            BaseSettingsViewEvents.OnVolumeChanged -= SetGeneralVolume;
+            //BaseSettingsViewEvents.OnSourceMuted -= MuteSource;
+            //BaseSettingsViewEvents.OnVolumeChanged -= SetGeneralVolume;
         }
         #endregion
 
