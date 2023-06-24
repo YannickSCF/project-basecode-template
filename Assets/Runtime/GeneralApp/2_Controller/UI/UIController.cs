@@ -20,10 +20,10 @@ namespace YannickSCF.GeneralApp.Controller.UI {
         [Header("Main UI Controllers")]
         [SerializeField] private WindowsController _windowsController;
         [SerializeField] private PopupsController _popupsController;
+        [Header("Basic Fade In/Out Controller")]
         [SerializeField] private LoadingPanelController _loadingController;
 
         public LoadingPanelController LoadingController { get => _loadingController; }
-        public PopupsController PopupsController { get => _popupsController; }
 
         #region Methods for popups
         public virtual PopupView ShowPopup(string popupId) {

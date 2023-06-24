@@ -15,7 +15,7 @@ namespace YannickSCF.GeneralApp.Controller {
     /// Base Game Manager.
     /// This base game manager script has basic functionalities for scene management
     /// </summary>
-    public class BaseGameManager {
+    public class BaseGameManager : GlobalSingleton<BaseGameManager> {
 
         [SerializeField] protected UIController UIController;
         [SerializeField] protected SceneController SceneController;

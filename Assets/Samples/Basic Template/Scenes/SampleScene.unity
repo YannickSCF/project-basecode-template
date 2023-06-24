@@ -268,33 +268,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1402c9a660767604787e60b69dd6f65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audiosDatabase: {fileID: 0}
   musicAudioSource: {fileID: 909682721}
   sfxAudioSource: {fileID: 265392722}
-  backgroundVolumeDownCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  backgroundVolumeUpCurve:
+  _backgroundVolumeDownCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -314,6 +291,30 @@ MonoBehaviour:
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.056646287
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _backgroundVolumeUpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -363,13 +364,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 184129265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b5dbffe2172b5e4185c6eb58d046fd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fb6d49975ad0de478819241c7d62120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseUIController: {fileID: 0}
-  AudioController: {fileID: 0}
-  AudiosDatabase: {fileID: 0}
-  SceneController: {fileID: 0}
+  UIController: {fileID: 2046462920}
+  SceneController: {fileID: 2890506}
 --- !u!1 &265392720
 GameObject:
   m_ObjectHideFlags: 0
