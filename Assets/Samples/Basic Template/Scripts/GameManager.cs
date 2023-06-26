@@ -28,8 +28,8 @@ namespace YannickSCF.GeneralApp.Samples.Controller {
         public SceneController SceneController { get => _sceneController; }
 
 
-        private static int _sceneToGo = 0;
-        private static bool _showProgress = false;
+        private int _sceneToGo = 0;
+        private bool _showProgress = false;
 
         #region Load single scenes methods
         public void ChangeSingleScene(int sceneToGo, bool showProgress = false) {
