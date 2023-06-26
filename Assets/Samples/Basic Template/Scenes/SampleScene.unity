@@ -364,13 +364,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 184129265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6a87682b021e6e409878c4e9dc48eae, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fb6d49975ad0de478819241c7d62120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseUIController: {fileID: 0}
-  _baseAudioController: {fileID: 0}
-  _sceneController: {fileID: 0}
-  _aux: 0
+  _baseUIController: {fileID: 2046462920}
+  _baseAudioController: {fileID: 166857373}
+  _sceneController: {fileID: 2890506}
 --- !u!1 &265392720
 GameObject:
   m_ObjectHideFlags: 0
