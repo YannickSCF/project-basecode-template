@@ -168,7 +168,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 184129266}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &124692848 stripped
 RectTransform:
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 166857372}
   - component: {fileID: 166857373}
   m_Layer: 0
-  m_Name: Audio Controller
+  m_Name: Base Audio Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ Transform:
   - {fileID: 909682720}
   - {fileID: 265392721}
   m_Father: {fileID: 184129266}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &166857373
 MonoBehaviour:
@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audiosDatabase: {fileID: 0}
-  musicAudioSource: {fileID: 909682721}
-  sfxAudioSource: {fileID: 265392722}
+  _musicAudioSource: {fileID: 0}
+  _sfxAudioSource: {fileID: 0}
   _backgroundVolumeDownCurve:
     serializedVersion: 2
     m_Curve:
@@ -350,8 +350,8 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   - {fileID: 2046462916}
-  - {fileID: 2890507}
   - {fileID: 166857372}
+  - {fileID: 2890507}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -364,11 +364,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 184129265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fb6d49975ad0de478819241c7d62120, type: 3}
+  m_Script: {fileID: 11500000, guid: d6a87682b021e6e409878c4e9dc48eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIController: {fileID: 2046462920}
-  SceneController: {fileID: 2890506}
+  _baseUIController: {fileID: 0}
+  _baseAudioController: {fileID: 0}
+  _sceneController: {fileID: 0}
+  _aux: 0
 --- !u!1 &265392720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,8 +1256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfab8ed70dbece4f8e5d1a25badc90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _windowsController: {fileID: 2008242478}
-  _popupsController: {fileID: 1112913176}
+  WindowsController: {fileID: 0}
+  PopupsController: {fileID: 0}
   _loadingController: {fileID: 124692849}
 --- !u!1001 &7376009553213061202
 PrefabInstance:
