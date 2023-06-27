@@ -47,23 +47,18 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
         #endregion
 
         public T ShowPopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
-            PopupController<PopupView> popup = null;
+            T popup = null;
             if (_popupsDatabase != null) {
                 if (_popupsHidden.ContainsKey(popupId)) {
-                    popup = UnhidePopup(popupId);
+                    popup = UnhidePopup<T, U>(popupId);
                 } else {
-                    popup = CreatePopup(popupId);
+                    popup = CreatePopup<T, U>(popupId);
                 }
             } else {
                 Debug.LogError("No Popup Database selected!");
             }
 
-            if (!popup is T) {
-                Debug.LogError("Popup is not of the type specified!");
-                return null;
-            }
-
-            return popup as T;
+            return popup;
         }
 
         public void HidePopup(string popupId) {
@@ -160,7 +155,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             _backgroundCoroutine = null;
         }
 
-        private PopupController<PopupView> UnhidePopup(string popupId) {
+        private T UnhidePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
             PopupController<PopupView> popup;
             if (_popupsHidden.TryGetValue(popupId, out popup)) {
                 ToggleBackground(true);
@@ -169,7 +164,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                 Debug.LogError($"Popup NOT found on hidden popups list! ({popupId})");
             }
 
-            return popup;
+            return popup as T;
         }
         private void OnPopupShown(PopupController<PopupView> popupToShow, string popupId) {
             popupToShow.transform.SetParent(_popupsDisplay);
@@ -177,14 +172,14 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             _popupsVisible.Add(popupId, popupToShow);
         }
 
-        private PopupController<PopupView> CreatePopup(string popupId) {
+        private T CreatePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
             GameObject popupToShow = _popupsDatabase.GetPopupById(popupId);
             if (popupToShow != null) {
                 ToggleBackground(true);
                 GameObject instantiatedObject = Instantiate(popupToShow, _popupsDisplay);
-                PopupController<PopupView> popup = instantiatedObject.GetComponent<PopupController<PopupView>>();
+                T popup = instantiatedObject.GetComponent<T>();
 
-                _popupsVisible.Add(popupId, popup);
+                _popupsVisible.Add(popupId, popup as PopupController<PopupView>);
                 popup.Init(popupId);
                 popup.Open();
 

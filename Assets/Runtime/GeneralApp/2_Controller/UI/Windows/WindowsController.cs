@@ -31,23 +31,18 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
         #endregion
 
         public T ShowWindow<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
-            WindowController<WindowView> window = null;
+            T window = null;
             if (_windowsDatabase != null) {
                 if (_windowsHidden.ContainsKey(windowId)) {
-                    window = UnhideWindow(windowId);
+                    window = UnhideWindow<T, U>(windowId);
                 } else {
-                    window = CreateWindow(windowId);
+                    window = CreateWindow<T, U>(windowId);
                 }
             } else {
                 Debug.LogError("No Window Database selected!");
             }
 
-            if (!window is T) {
-                Debug.LogError("Window is not of the type specified!");
-                return null;
-            }
-
-            return window as T;
+            return window;
         }
 
         public void HideWindow(string windowId) {
@@ -93,7 +88,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
         }
 
         #region Private methods
-        private WindowController<WindowView> UnhideWindow(string windowId) {
+        private T UnhideWindow<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
             WindowController<WindowView> window;
             if (_windowsHidden.TryGetValue(windowId, out window)) {
                 window.Show(OnWindowShown);
@@ -101,7 +96,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
                 Debug.LogError($"Window NOT found on hidden windows list! ({windowId})");
             }
 
-            return window;
+            return window as T;
         }
         private void OnWindowShown(WindowController<WindowView> windowToShow, string windowId) {
             windowToShow.transform.SetParent(_windowsDisplay);
@@ -109,13 +104,13 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
             _windowsVisible.Add(windowId, windowToShow);
         }
 
-        private WindowController<WindowView> CreateWindow(string windowId) {
+        private T CreateWindow<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
             GameObject windowToShow = _windowsDatabase.GetWindowById(windowId);
             if (windowToShow != null) {
                 GameObject instantiatedObject = Instantiate(windowToShow, _windowsDisplay);
-                WindowController<WindowView> window = instantiatedObject.GetComponent<WindowController<WindowView>>();
+                T window = instantiatedObject.GetComponent<T>();
 
-                _windowsVisible.Add(windowId, window);
+                _windowsVisible.Add(windowId, window as WindowController<WindowView>);
                 window.Init(windowId);
                 window.Open();
 
