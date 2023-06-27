@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.UI;
 /// Custom dependencies
 using YannickSCF.GeneralApp.Scriptables.Popup;
+using YannickSCF.GeneralApp.View.UI.Popups;
 
 namespace YannickSCF.GeneralApp.Controller.UI.Popups {
     public sealed class PopupsController : MonoBehaviour {
@@ -26,15 +27,15 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
         [SerializeField, Range(0f, 1f)] private float _backgroundActiveAlpha = 0.5f;
         [SerializeField, Range(0f, 3f)] private float _timeToSetFinalBackground = 0f;
 
-        private Dictionary<string, PopupController> _popupsVisible;
-        private Dictionary<string, PopupController> _popupsHidden;
+        private Dictionary<string, PopupController<PopupView>> _popupsVisible;
+        private Dictionary<string, PopupController<PopupView>> _popupsHidden;
 
         private Coroutine _backgroundCoroutine = null;
 
         #region Mono
         private void Awake() {
-            _popupsVisible = new Dictionary<string, PopupController>();
-            _popupsHidden = new Dictionary<string, PopupController>();
+            _popupsVisible = new Dictionary<string, PopupController<PopupView>>();
+            _popupsHidden = new Dictionary<string, PopupController<PopupView>>();
 
             _popupBackground.gameObject.SetActive(false);
             _popupBackground.color = new Color(
@@ -45,8 +46,8 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
         }
         #endregion
 
-        public PopupController ShowPopup(string popupId) {
-            PopupController popup = null;
+        public T ShowPopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
+            PopupController<PopupView> popup = null;
             if (_popupsDatabase != null) {
                 if (_popupsHidden.ContainsKey(popupId)) {
                     popup = UnhidePopup(popupId);
@@ -57,12 +58,17 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                 Debug.LogError("No Popup Database selected!");
             }
 
-            return popup;
+            if (!popup is T) {
+                Debug.LogError("Popup is not of the type specified!");
+                return null;
+            }
+
+            return popup as T;
         }
 
         public void HidePopup(string popupId) {
             if (_popupsVisible.ContainsKey(popupId)) {
-                if (_popupsVisible.TryGetValue(popupId, out PopupController popupToHide)) {
+                if (_popupsVisible.TryGetValue(popupId, out PopupController<PopupView> popupToHide)) {
                     ToggleBackground(false);
                     popupToHide.Hide(OnPopupHidden);
                 } else {
@@ -72,14 +78,14 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                 Debug.LogWarning($"Popup '{popupId}' not found on visible area!");
             }
         }
-        private void OnPopupHidden(PopupController popupToHide, string popupId) {
+        private void OnPopupHidden(PopupController<PopupView> popupToHide, string popupId) {
             popupToHide.transform.SetParent(_hiddenPopupsDisplay);
             _popupsVisible.Remove(popupId);
             _popupsHidden.Add(popupId, popupToHide);
         }
 
         public void ClosePopup(string popupId) {
-            PopupController popup;
+            PopupController<PopupView> popup;
             if (_popupsVisible.ContainsKey(popupId)) {
                 if (_popupsVisible.TryGetValue(popupId, out popup)) {
                     ToggleBackground(false);
@@ -154,8 +160,8 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             _backgroundCoroutine = null;
         }
 
-        private PopupController UnhidePopup(string popupId) {
-            PopupController popup;
+        private PopupController<PopupView> UnhidePopup(string popupId) {
+            PopupController<PopupView> popup;
             if (_popupsHidden.TryGetValue(popupId, out popup)) {
                 ToggleBackground(true);
                 popup.Show(OnPopupShown);
@@ -165,18 +171,18 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
 
             return popup;
         }
-        private void OnPopupShown(PopupController popupToShow, string popupId) {
+        private void OnPopupShown(PopupController<PopupView> popupToShow, string popupId) {
             popupToShow.transform.SetParent(_popupsDisplay);
             _popupsHidden.Remove(popupId);
             _popupsVisible.Add(popupId, popupToShow);
         }
 
-        private PopupController CreatePopup(string popupId) {
+        private PopupController<PopupView> CreatePopup(string popupId) {
             GameObject popupToShow = _popupsDatabase.GetPopupById(popupId);
             if (popupToShow != null) {
                 ToggleBackground(true);
                 GameObject instantiatedObject = Instantiate(popupToShow, _popupsDisplay);
-                PopupController popup = instantiatedObject.GetComponent<PopupController>();
+                PopupController<PopupView> popup = instantiatedObject.GetComponent<PopupController<PopupView>>();
 
                 _popupsVisible.Add(popupId, popup);
                 popup.Init(popupId);

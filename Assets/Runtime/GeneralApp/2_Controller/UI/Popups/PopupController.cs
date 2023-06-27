@@ -10,12 +10,12 @@ using UnityEngine;
 using YannickSCF.GeneralApp.View.UI.Popups;
 
 namespace YannickSCF.GeneralApp.Controller.UI.Popups {
-    public abstract class PopupController : MonoBehaviour {
+    public abstract class PopupController<T> : MonoBehaviour where T : PopupView {
 
-        [SerializeField] protected PopupView View;
+        [SerializeField] protected T View;
 
-        protected Action<PopupController, string> OnPopupShown;
-        protected Action<PopupController, string> OnPopupHidden;
+        protected Action<PopupController<T>, string> OnPopupShown;
+        protected Action<PopupController<T>, string> OnPopupHidden;
 
         private string _popupId;
         public string PopupId { get => _popupId; protected set => _popupId = value; }
@@ -42,21 +42,21 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             View.Open();
         }
 
-        public virtual void Show(Action<PopupController, string> onPopupShown = null) {
+        public virtual void Show(Action<PopupController<T>, string> onPopupShown = null) {
             OnPopupShown = onPopupShown;
             gameObject.SetActive(true);
 
             View.Show();
         }
 
-        public virtual void Hide(Action<PopupController, string> onPopupHidden = null) {
+        public virtual void Hide(Action<PopupController<T>, string> onPopupHidden = null) {
             OnPopupHidden = onPopupHidden;
             gameObject.SetActive(false);
 
             View.Hide();
         }
 
-        public virtual void Close(Action onPopupClosed = null) {
+        public virtual void Close() {
             Destroy(gameObject);
 
             View.Close();

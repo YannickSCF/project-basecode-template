@@ -10,12 +10,12 @@ using UnityEngine;
 using YannickSCF.GeneralApp.View.UI.Windows;
 
 namespace YannickSCF.GeneralApp.Controller.UI.Windows {
-    public abstract class WindowController : MonoBehaviour {
+    public abstract class WindowController<T> : MonoBehaviour where T : WindowView {
 
-        [SerializeField] protected WindowView View;
+        [SerializeField] protected T View;
 
-        protected Action<WindowController, string> OnWindowShown;
-        protected Action<WindowController, string> OnWindowHidden;
+        protected Action<WindowController<T>, string> OnWindowShown;
+        protected Action<WindowController<T>, string> OnWindowHidden;
 
         private string _windowId;
         public string WindowId { get => _windowId; protected set => _windowId = value; }
@@ -42,21 +42,21 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
             View.Open();
         }
 
-        public virtual void Show(Action<WindowController, string> onWindowShown = null) {
+        public virtual void Show(Action<WindowController<T>, string> onWindowShown = null) {
             OnWindowShown = onWindowShown;
             gameObject.SetActive(true);
 
             View.Show();
         }
 
-        public virtual void Hide(Action<WindowController, string> onWindowHidden = null) {
+        public virtual void Hide(Action<WindowController<T>, string> onWindowHidden = null) {
             OnWindowHidden = onWindowHidden;
             gameObject.SetActive(false);
 
             View.Hide();
         }
 
-        public virtual void Close(Action onWindowClosed = null) {
+        public virtual void Close() {
             Destroy(gameObject);
 
             View.Close();

@@ -26,8 +26,8 @@ namespace YannickSCF.GeneralApp.Controller.UI {
         public LoadingPanelController LoadingController { get => _loadingController; }
 
         #region Methods for popups
-        public virtual PopupController ShowPopup(string popupId) {
-            return PopupsController.ShowPopup(popupId);
+        public virtual T ShowPopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
+            return PopupsController.ShowPopup<T, U>(popupId);
         }
 
         public virtual void HidePopup(string popupId) {
@@ -39,8 +39,8 @@ namespace YannickSCF.GeneralApp.Controller.UI {
         }
         #endregion
 
-        public virtual WindowController ShowView(string windowId) {
-            return WindowsController.ShowWindow(windowId);
+        public virtual T ShowView<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
+            return WindowsController.ShowWindow<T, U>(windowId);
         }
 
         public virtual void HideView(string windowId) {
