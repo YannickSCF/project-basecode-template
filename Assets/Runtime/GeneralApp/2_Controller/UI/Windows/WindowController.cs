@@ -32,33 +32,24 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
 
         public virtual void Init(string windowId) {
             _windowId = windowId;
-
             View.Init();
         }
 
         public virtual void Open() {
-            gameObject.SetActive(true);
-
             View.Open();
         }
 
         public virtual void Show(Action<WindowController<T>, string> onWindowShown = null) {
             OnWindowShown = onWindowShown;
-            gameObject.SetActive(true);
-
             View.Show();
         }
 
         public virtual void Hide(Action<WindowController<T>, string> onWindowHidden = null) {
             OnWindowHidden = onWindowHidden;
-            gameObject.SetActive(false);
-
             View.Hide();
         }
 
         public virtual void Close() {
-            Destroy(gameObject);
-
             View.Close();
         }
     }

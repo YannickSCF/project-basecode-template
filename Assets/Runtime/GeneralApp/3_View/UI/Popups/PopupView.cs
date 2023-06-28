@@ -8,10 +8,18 @@ using UnityEngine;
 
 namespace YannickSCF.GeneralApp.View.UI.Popups {
     public abstract class PopupView : MonoBehaviour {
-        public abstract void Init();
-        public abstract void Open();
-        public abstract void Show();
-        public abstract void Hide();
-        public abstract void Close();
+        public virtual void Init() { }
+        public virtual void Open() {
+            gameObject.SetActive(true);
+        }
+        public virtual void Show() {
+            gameObject.SetActive(true);
+        }
+        public virtual void Hide() {
+            gameObject.SetActive(false);
+        }
+        public virtual void Close() {
+            Destroy(gameObject);
+        }
     }
 }

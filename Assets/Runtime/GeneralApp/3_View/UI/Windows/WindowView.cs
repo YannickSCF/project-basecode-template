@@ -7,11 +7,19 @@
 using UnityEngine;
 
 namespace YannickSCF.GeneralApp.View.UI.Windows {
-    public abstract class WindowView : MonoBehaviour {
-        public abstract void Init();
-        public abstract void Open();
-        public abstract void Show();
-        public abstract void Hide();
-        public abstract void Close();
+    public class WindowView : MonoBehaviour {
+        public virtual void Init() { }
+        public virtual void Open() {
+            gameObject.SetActive(true);
+        }
+        public virtual void Show() {
+            gameObject.SetActive(true);
+        }
+        public virtual void Hide() {
+            gameObject.SetActive(false);
+        }
+        public virtual void Close() {
+            Destroy(gameObject);
+        }
     }
 }

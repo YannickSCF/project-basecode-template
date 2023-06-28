@@ -32,33 +32,24 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
 
         public virtual void Init(string popupId) {
             _popupId = popupId;
-
             View.Init();
         }
 
         public virtual void Open() {
-            gameObject.SetActive(true);
-
             View.Open();
         }
 
         public virtual void Show(Action<PopupController<T>, string> onPopupShown = null) {
             OnPopupShown = onPopupShown;
-            gameObject.SetActive(true);
-
             View.Show();
         }
 
         public virtual void Hide(Action<PopupController<T>, string> onPopupHidden = null) {
             OnPopupHidden = onPopupHidden;
-            gameObject.SetActive(false);
-
             View.Hide();
         }
 
         public virtual void Close() {
-            Destroy(gameObject);
-
             View.Close();
         }
     }
