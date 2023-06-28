@@ -20,13 +20,13 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
         [SerializeField] private Transform _windowsDisplay;
         [SerializeField] private Transform _hiddenWindowsDisplay;
 
-        private Dictionary<string, WindowController<WindowView>> _windowsVisible;
-        private Dictionary<string, WindowController<WindowView>> _windowsHidden;
+        private Dictionary<string, object> _windowsVisible;
+        private Dictionary<string, object> _windowsHidden;
 
         #region Mono
         private void Awake() {
-            _windowsVisible = new Dictionary<string, WindowController<WindowView>>();
-            _windowsHidden = new Dictionary<string, WindowController<WindowView>>();
+            _windowsVisible = new Dictionary<string, object>();
+            _windowsHidden = new Dictionary<string, object>();
         }
         #endregion
 
@@ -45,9 +45,13 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
             return window;
         }
 
-        public void HideWindow(string windowId) {
+        public void HideWindow<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
             if (_windowsVisible.ContainsKey(windowId)) {
-                if (_windowsVisible.TryGetValue(windowId, out WindowController<WindowView> windowToHide)) {
+                if (_windowsVisible.TryGetValue(windowId, out object objectToHide)) {
+                    T windowToHide = objectToHide as T;
+
+                    _windowsVisible.Remove(windowId);
+                    _windowsHidden.Add(windowId, windowToHide);
                     windowToHide.Hide(OnWindowHidden);
                 } else {
                     Debug.LogError($"Window NOT found on visible windows list! ({windowId})");
@@ -56,18 +60,18 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
                 Debug.LogWarning($"Window '{windowId}' not found on visible area!");
             }
         }
-        private void OnWindowHidden(WindowController<WindowView> windowToHide, string windowId) {
+        private void OnWindowHidden<T>(WindowController<T> windowToHide, string windowId) where T : WindowView {
             windowToHide.transform.SetParent(_hiddenWindowsDisplay);
-            _windowsVisible.Remove(windowId);
-            _windowsHidden.Add(windowId, windowToHide);
         }
 
-        public void CloseWindow(string windowId) {
-            WindowController<WindowView> window;
+        public void CloseWindow<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
+            T windowToClose = null;
+            object objectToClose;
             if (_windowsVisible.ContainsKey(windowId)) {
-                if (_windowsVisible.TryGetValue(windowId, out window)) {
+                if (_windowsVisible.TryGetValue(windowId, out objectToClose)) {
+                    windowToClose = objectToClose as T;
                     _windowsVisible.Remove(windowId);
-                    window.Close();
+                    windowToClose.Close();
                     return;
                 } else {
                     Debug.LogWarning($"Window '{windowId}' NOT found on visible windows list!");
@@ -75,9 +79,10 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
             }
 
             if (_windowsHidden.ContainsKey(windowId)) {
-                if (_windowsHidden.TryGetValue(windowId, out window)) {
+                if (_windowsHidden.TryGetValue(windowId, out objectToClose)) {
+                    windowToClose = objectToClose as T;
                     _windowsHidden.Remove(windowId);
-                    window.Close();
+                    windowToClose.Close();
                     return;
                 } else {
                     Debug.LogWarning($"Window '{windowId}' NOT found on hidden windows list!");
@@ -89,19 +94,21 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
 
         #region Private methods
         private T UnhideWindow<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
-            WindowController<WindowView> window;
-            if (_windowsHidden.TryGetValue(windowId, out window)) {
-                window.Show(OnWindowShown);
+            T windowToUnhide = null;
+            if (_windowsHidden.TryGetValue(windowId, out object objectToUnhide)) {
+                windowToUnhide = objectToUnhide as T;
+
+                _windowsHidden.Remove(windowId);
+                _windowsVisible.Add(windowId, windowToUnhide);
+                windowToUnhide.Show(OnWindowShown);
             } else {
                 Debug.LogError($"Window NOT found on hidden windows list! ({windowId})");
             }
 
-            return window as T;
+            return windowToUnhide;
         }
-        private void OnWindowShown(WindowController<WindowView> windowToShow, string windowId) {
+        private void OnWindowShown<T>(WindowController<T> windowToShow, string windowId) where T : WindowView {
             windowToShow.transform.SetParent(_windowsDisplay);
-            _windowsHidden.Remove(windowId);
-            _windowsVisible.Add(windowId, windowToShow);
         }
 
         private T CreateWindow<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
@@ -110,7 +117,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
                 GameObject instantiatedObject = Instantiate(windowToShow, _windowsDisplay);
                 T window = instantiatedObject.GetComponent<T>();
 
-                _windowsVisible.Add(windowId, window as WindowController<WindowView>);
+                _windowsVisible.Add(windowId, window);
                 window.Init(windowId);
                 window.Open();
 

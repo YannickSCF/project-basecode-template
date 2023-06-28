@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958fd9bea683f01489164b31234822f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _windowsDatabase: {fileID: 0}
+  _windowsDatabase: {fileID: 11400000, guid: aa0e5080949e52e4a881bca6ae466959, type: 2}
   _windowsDisplay: {fileID: 849277758}
   _hiddenWindowsDisplay: {fileID: 148748541}
 --- !u!1 &2046462915
@@ -1255,8 +1255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfab8ed70dbece4f8e5d1a25badc90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WindowsController: {fileID: 0}
-  PopupsController: {fileID: 0}
+  WindowsController: {fileID: 2008242478}
+  PopupsController: {fileID: 1112913176}
   _loadingController: {fileID: 124692849}
 --- !u!1001 &7376009553213061202
 PrefabInstance:

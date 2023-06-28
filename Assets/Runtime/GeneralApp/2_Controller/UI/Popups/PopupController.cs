@@ -22,13 +22,23 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
 
         #region Mono
         protected virtual void OnEnable() {
-            OnPopupShown?.Invoke(this, _popupId);
+            CancelInvoke();
+            Invoke(nameof(ThrowPopupShown), 0.1f);
         }
 
         protected virtual void OnDisable() {
-            OnPopupHidden?.Invoke(this, _popupId);
+            CancelInvoke();
+            Invoke(nameof(ThrowPopupHidden), 0.1f);
         }
         #endregion
+
+        protected virtual void ThrowPopupShown() {
+            OnPopupShown?.Invoke(this, _popupId);
+        }
+
+        protected virtual void ThrowPopupHidden() {
+            OnPopupHidden?.Invoke(this, _popupId);
+        }
 
         public virtual void Init(string popupId) {
             _popupId = popupId;

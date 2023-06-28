@@ -30,12 +30,12 @@ namespace YannickSCF.GeneralApp.Controller.UI {
             return PopupsController.ShowPopup<T, U>(popupId);
         }
 
-        public virtual void HidePopup(string popupId) {
-            PopupsController.HidePopup(popupId);
+        public virtual void HidePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
+            PopupsController.HidePopup<T, U>(popupId);
         }
 
-        public virtual void ClosePopup(string popupId) {
-            PopupsController.ClosePopup(popupId);
+        public virtual void ClosePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
+            PopupsController.ClosePopup<T, U>(popupId);
         }
         #endregion
 
@@ -43,12 +43,12 @@ namespace YannickSCF.GeneralApp.Controller.UI {
             return WindowsController.ShowWindow<T, U>(windowId);
         }
 
-        public virtual void HideView(string windowId) {
-            WindowsController.HideWindow(windowId);
+        public virtual void HideView<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
+            WindowsController.HideWindow<T, U>(windowId);
         }
 
-        public virtual void CloseView(string windowId) {
-            WindowsController.CloseWindow(windowId);
+        public virtual void CloseView<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
+            WindowsController.CloseWindow<T, U>(windowId);
         }
     }
 }

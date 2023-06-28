@@ -27,15 +27,15 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
         [SerializeField, Range(0f, 1f)] private float _backgroundActiveAlpha = 0.5f;
         [SerializeField, Range(0f, 3f)] private float _timeToSetFinalBackground = 0f;
 
-        private Dictionary<string, PopupController<PopupView>> _popupsVisible;
-        private Dictionary<string, PopupController<PopupView>> _popupsHidden;
+        private Dictionary<string, object> _popupsVisible;
+        private Dictionary<string, object> _popupsHidden;
 
         private Coroutine _backgroundCoroutine = null;
 
         #region Mono
         private void Awake() {
-            _popupsVisible = new Dictionary<string, PopupController<PopupView>>();
-            _popupsHidden = new Dictionary<string, PopupController<PopupView>>();
+            _popupsVisible = new Dictionary<string, object>();
+            _popupsHidden = new Dictionary<string, object>();
 
             _popupBackground.gameObject.SetActive(false);
             _popupBackground.color = new Color(
@@ -61,10 +61,15 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             return popup;
         }
 
-        public void HidePopup(string popupId) {
+        public void HidePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
             if (_popupsVisible.ContainsKey(popupId)) {
-                if (_popupsVisible.TryGetValue(popupId, out PopupController<PopupView> popupToHide)) {
+                if (_popupsVisible.TryGetValue(popupId, out object objectToHide)) {
+                    T popupToHide = objectToHide as T;
+                    
                     ToggleBackground(false);
+
+                    _popupsVisible.Remove(popupId);
+                    _popupsHidden.Add(popupId, popupToHide);
                     popupToHide.Hide(OnPopupHidden);
                 } else {
                     Debug.LogError($"Popup NOT found on visible popups list! ({popupId})");
@@ -73,19 +78,21 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                 Debug.LogWarning($"Popup '{popupId}' not found on visible area!");
             }
         }
-        private void OnPopupHidden(PopupController<PopupView> popupToHide, string popupId) {
+        private void OnPopupHidden<T>(PopupController<T> popupToHide, string popupId) where T : PopupView {
             popupToHide.transform.SetParent(_hiddenPopupsDisplay);
-            _popupsVisible.Remove(popupId);
-            _popupsHidden.Add(popupId, popupToHide);
         }
 
-        public void ClosePopup(string popupId) {
-            PopupController<PopupView> popup;
+        public void ClosePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
+            T popupToClose = null;
+            object objectToClose;
             if (_popupsVisible.ContainsKey(popupId)) {
-                if (_popupsVisible.TryGetValue(popupId, out popup)) {
+                if (_popupsVisible.TryGetValue(popupId, out objectToClose)) {
+                    popupToClose = objectToClose as T;
+
                     ToggleBackground(false);
+                    
                     _popupsVisible.Remove(popupId);
-                    popup.Close();
+                    popupToClose.Close();
                     return;
                 } else {
                     Debug.LogWarning($"Popup '{popupId}' NOT found on visible popups list!");
@@ -93,10 +100,13 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             }
 
             if (_popupsHidden.ContainsKey(popupId)) {
-                if (_popupsHidden.TryGetValue(popupId, out popup)) {
+                if (_popupsHidden.TryGetValue(popupId, out objectToClose)) {
+                    popupToClose = objectToClose as T;
+
                     ToggleBackground(false);
+                    
                     _popupsHidden.Remove(popupId);
-                    popup.Close();
+                    popupToClose.Close();
                     return;
                 } else {
                     Debug.LogWarning($"Popup '{popupId}' NOT found on hidden popups list!");
@@ -156,20 +166,23 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
         }
 
         private T UnhidePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
-            PopupController<PopupView> popup;
-            if (_popupsHidden.TryGetValue(popupId, out popup)) {
+            T popupToUnhide = null;
+            if (_popupsHidden.TryGetValue(popupId, out object objectToUnhide)) {
+                popupToUnhide = objectToUnhide as T;
+
                 ToggleBackground(true);
-                popup.Show(OnPopupShown);
+
+                _popupsHidden.Remove(popupId);
+                _popupsVisible.Add(popupId, popupToUnhide);
+                popupToUnhide.Show(OnPopupShown);
             } else {
                 Debug.LogError($"Popup NOT found on hidden popups list! ({popupId})");
             }
 
-            return popup as T;
+            return popupToUnhide;
         }
-        private void OnPopupShown(PopupController<PopupView> popupToShow, string popupId) {
-            popupToShow.transform.SetParent(_popupsDisplay);
-            _popupsHidden.Remove(popupId);
-            _popupsVisible.Add(popupId, popupToShow);
+        private void OnPopupShown<T>(PopupController<T> popupToUnhide, string popupId) where T : PopupView {
+            popupToUnhide.transform.SetParent(_popupsDisplay);
         }
 
         private T CreatePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {

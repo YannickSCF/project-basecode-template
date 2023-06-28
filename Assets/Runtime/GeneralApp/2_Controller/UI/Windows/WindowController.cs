@@ -10,7 +10,7 @@ using UnityEngine;
 using YannickSCF.GeneralApp.View.UI.Windows;
 
 namespace YannickSCF.GeneralApp.Controller.UI.Windows {
-    public abstract class WindowController<T> : MonoBehaviour where T : WindowView {
+    public class WindowController<T> : MonoBehaviour where T : WindowView {
 
         [SerializeField] protected T View;
 
@@ -22,13 +22,23 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
 
         #region Mono
         protected virtual void OnEnable() {
-            OnWindowShown?.Invoke(this, _windowId);
+            CancelInvoke();
+            Invoke(nameof(ThrowWindowShown), 0.1f);
         }
 
         protected virtual void OnDisable() {
-            OnWindowHidden?.Invoke(this, _windowId);
+            CancelInvoke();
+            Invoke(nameof(ThrowWindowHidden), 0.1f);
         }
         #endregion
+
+        protected virtual void ThrowWindowShown() {
+            OnWindowShown?.Invoke(this, _windowId);
+        }
+
+        protected virtual void ThrowWindowHidden() {
+            OnWindowHidden?.Invoke(this, _windowId);
+        }
 
         public virtual void Init(string windowId) {
             _windowId = windowId;
