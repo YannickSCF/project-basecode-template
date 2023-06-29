@@ -1,7 +1,10 @@
 /**
- * Author:      Yannick Santa Cruz Feuillias
- * Created:     11/02/2023
- **/
+* Author:      Yannick Santa Cruz Feuillias
+* Created:     11/02/2023
+**/
+
+/// Custom dependencies
+using static YannickSCF.GeneralApp.CommonEventsDelegates;
 
 namespace YannickSCF.GeneralApp.View.UI.LoadingPanel.Events {
     /// <summary>
@@ -13,9 +16,6 @@ namespace YannickSCF.GeneralApp.View.UI.LoadingPanel.Events {
     /// </list>
     /// </summary>
     public class LoadingPanelViewEvents {
-        /// --------------------- Delegate types ---------------------
-        public delegate void SimpleEventDelegate();
-
 
         /// ------------------------- Events -------------------------
         // Fade IN events

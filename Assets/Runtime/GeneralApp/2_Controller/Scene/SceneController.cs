@@ -8,18 +8,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+/// Custom dependencies
+using static YannickSCF.GeneralApp.CommonEventsDelegates;
 
 namespace YannickSCF.GeneralApp.Controller.Scenes {
     public sealed class SceneController : MonoBehaviour, ISerializationCallbackReceiver {
 
         private static List<string> _popupList;
 
-        public delegate void SimpleEventDelegate();
         public event SimpleEventDelegate OnSceneLoaded;
         public event SimpleEventDelegate OnSceneUnloaded;
 
-        public delegate void ProgressEventDelegate(float progress);
-        public event ProgressEventDelegate OnSceneLoadProgress;
+        public event FloatEventDelegate OnSceneLoadProgress;
 
         [SerializeField, ListToPopup("_popupList")]
         private List<string> _allScenes;

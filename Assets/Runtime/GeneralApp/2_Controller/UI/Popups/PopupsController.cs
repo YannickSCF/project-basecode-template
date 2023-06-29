@@ -43,6 +43,9 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                 _popupBackground.color.g,
                 _popupBackground.color.b,
                 0f);
+
+            _popupsDisplay.gameObject.SetActive(true);
+            _hiddenPopupsDisplay.gameObject.SetActive(false);
         }
         #endregion
 
@@ -51,8 +54,10 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             if (_popupsDatabase != null) {
                 if (_popupsHidden.ContainsKey(popupId)) {
                     popup = UnhidePopup<T, U>(popupId);
-                } else {
+                } else if (!_popupsVisible.ContainsKey(popupId)) {
                     popup = CreatePopup<T, U>(popupId);
+                } else {
+                    Debug.LogWarning($"Popup '{popupId}' is already in scene!");
                 }
             } else {
                 Debug.LogError("No Popup Database selected!");
@@ -65,12 +70,14 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             if (_popupsVisible.ContainsKey(popupId)) {
                 if (_popupsVisible.TryGetValue(popupId, out object objectToHide)) {
                     T popupToHide = objectToHide as T;
-                    
+                    // Hide background
                     ToggleBackground(false);
-
+                    // Set popups lists
                     _popupsVisible.Remove(popupId);
                     _popupsHidden.Add(popupId, popupToHide);
-                    popupToHide.Hide(OnPopupHidden);
+                    // Hide and listen on hide finished
+                    popupToHide.OnPopupHidden += OnPopupHidden;
+                    popupToHide.Hide();
                 } else {
                     Debug.LogError($"Popup NOT found on visible popups list! ({popupId})");
                 }
@@ -78,8 +85,9 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                 Debug.LogWarning($"Popup '{popupId}' not found on visible area!");
             }
         }
-        private void OnPopupHidden<T>(PopupController<T> popupToHide, string popupId) where T : PopupView {
+        private void OnPopupHidden<T>(PopupController<T> popupToHide) where T : PopupView {
             popupToHide.transform.SetParent(_hiddenPopupsDisplay);
+            popupToHide.OnPopupHidden -= OnPopupHidden;
         }
 
         public void ClosePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
@@ -169,20 +177,23 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             T popupToUnhide = null;
             if (_popupsHidden.TryGetValue(popupId, out object objectToUnhide)) {
                 popupToUnhide = objectToUnhide as T;
-
+                // Hide background
                 ToggleBackground(true);
-
+                // Set popups lists
                 _popupsHidden.Remove(popupId);
                 _popupsVisible.Add(popupId, popupToUnhide);
-                popupToUnhide.Show(OnPopupShown);
+                // Show and listen on show finished
+                popupToUnhide.transform.SetParent(_popupsDisplay);
+                popupToUnhide.OnPopupShown += OnPopupShown;
+                popupToUnhide.Show();
             } else {
                 Debug.LogError($"Popup NOT found on hidden popups list! ({popupId})");
             }
 
             return popupToUnhide;
         }
-        private void OnPopupShown<T>(PopupController<T> popupToUnhide, string popupId) where T : PopupView {
-            popupToUnhide.transform.SetParent(_popupsDisplay);
+        private void OnPopupShown<T>(PopupController<T> popupToUnhide) where T : PopupView {
+            popupToUnhide.OnPopupShown -= OnPopupShown;
         }
 
         private T CreatePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {

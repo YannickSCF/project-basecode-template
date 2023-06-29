@@ -12,32 +12,33 @@ using YannickSCF.GeneralApp.View.UI.Popups;
 namespace YannickSCF.GeneralApp.Controller.UI.Popups {
     public abstract class PopupController<T> : MonoBehaviour where T : PopupView {
 
-        [SerializeField] protected T View;
+        public delegate void PopupControllerEventDelegate(PopupController<T> popup);
+        public event PopupControllerEventDelegate OnPopupShown;
+        public event PopupControllerEventDelegate OnPopupHidden;
 
-        protected Action<PopupController<T>, string> OnPopupShown;
-        protected Action<PopupController<T>, string> OnPopupHidden;
+        [SerializeField] protected T View;
 
         private string _popupId;
         public string PopupId { get => _popupId; protected set => _popupId = value; }
 
         #region Mono
         protected virtual void OnEnable() {
-            CancelInvoke();
-            Invoke(nameof(ThrowPopupShown), 0.1f);
+            View.OnViewShown += ThrowPopupShown;
+            View.OnViewHidden += ThrowPopupHidden;
         }
 
         protected virtual void OnDisable() {
-            CancelInvoke();
-            Invoke(nameof(ThrowPopupHidden), 0.1f);
+            View.OnViewShown += ThrowPopupShown;
+            View.OnViewHidden += ThrowPopupHidden;
         }
         #endregion
 
         protected virtual void ThrowPopupShown() {
-            OnPopupShown?.Invoke(this, _popupId);
+            OnPopupShown?.Invoke(this);
         }
 
         protected virtual void ThrowPopupHidden() {
-            OnPopupHidden?.Invoke(this, _popupId);
+            OnPopupHidden?.Invoke(this);
         }
 
         public virtual void Init(string popupId) {
@@ -49,13 +50,11 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             View.Open();
         }
 
-        public virtual void Show(Action<PopupController<T>, string> onPopupShown = null) {
-            OnPopupShown = onPopupShown;
+        public virtual void Show() {
             View.Show();
         }
 
-        public virtual void Hide(Action<PopupController<T>, string> onPopupHidden = null) {
-            OnPopupHidden = onPopupHidden;
+        public virtual void Hide() {
             View.Hide();
         }
 

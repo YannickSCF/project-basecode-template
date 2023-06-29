@@ -8,12 +8,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+/// Custom dependencies
+using static YannickSCF.GeneralApp.CommonEventsDelegates;
 
 namespace YannickSCF.GeneralApp.View.ComponentTools.SoundButton {
     public class SoundForButton : MonoBehaviour, ISerializationCallbackReceiver, IPointerClickHandler {
 
-        public delegate void StringEvent(string clipName);
-        public static event StringEvent OnSoundButtonClicked;
+        public static event StringEventDelegate OnSoundButtonClicked;
 
         private static List<string> _availableSounds;
         [SerializeField, ListToPopup("_availableSounds")]

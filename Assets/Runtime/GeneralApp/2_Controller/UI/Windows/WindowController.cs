@@ -12,32 +12,33 @@ using YannickSCF.GeneralApp.View.UI.Windows;
 namespace YannickSCF.GeneralApp.Controller.UI.Windows {
     public class WindowController<T> : MonoBehaviour where T : WindowView {
 
-        [SerializeField] protected T View;
+        public delegate void WindowControllerEventDelegate(WindowController<T> window);
+        public event WindowControllerEventDelegate OnWindowShown;
+        public event WindowControllerEventDelegate OnWindowHidden;
 
-        protected Action<WindowController<T>, string> OnWindowShown;
-        protected Action<WindowController<T>, string> OnWindowHidden;
+        [SerializeField] protected T View;
 
         private string _windowId;
         public string WindowId { get => _windowId; protected set => _windowId = value; }
 
         #region Mono
         protected virtual void OnEnable() {
-            CancelInvoke();
-            Invoke(nameof(ThrowWindowShown), 0.1f);
+            View.OnViewShown += ThrowWindowShown;
+            View.OnViewHidden += ThrowWindowHidden;
         }
 
         protected virtual void OnDisable() {
-            CancelInvoke();
-            Invoke(nameof(ThrowWindowHidden), 0.1f);
+            View.OnViewShown -= ThrowWindowShown;
+            View.OnViewHidden -= ThrowWindowHidden;
         }
         #endregion
 
         protected virtual void ThrowWindowShown() {
-            OnWindowShown?.Invoke(this, _windowId);
+            OnWindowShown?.Invoke(this);
         }
 
         protected virtual void ThrowWindowHidden() {
-            OnWindowHidden?.Invoke(this, _windowId);
+            OnWindowHidden?.Invoke(this);
         }
 
         public virtual void Init(string windowId) {
@@ -49,13 +50,11 @@ namespace YannickSCF.GeneralApp.Controller.UI.Windows {
             View.Open();
         }
 
-        public virtual void Show(Action<WindowController<T>, string> onWindowShown = null) {
-            OnWindowShown = onWindowShown;
+        public virtual void Show() {
             View.Show();
         }
 
-        public virtual void Hide(Action<WindowController<T>, string> onWindowHidden = null) {
-            OnWindowHidden = onWindowHidden;
+        public virtual void Hide() {
             View.Hide();
         }
 
