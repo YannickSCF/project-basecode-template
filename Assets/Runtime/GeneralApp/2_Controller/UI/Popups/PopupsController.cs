@@ -203,7 +203,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                 GameObject instantiatedObject = Instantiate(popupToShow, _popupsDisplay);
                 T popup = instantiatedObject.GetComponent<T>();
 
-                _popupsVisible.Add(popupId, popup as PopupController<PopupView>);
+                _popupsVisible.Add(popupId, popup);
                 popup.Init(popupId);
                 popup.Open();
 
