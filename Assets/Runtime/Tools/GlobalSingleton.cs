@@ -17,7 +17,7 @@ public class GlobalSingleton<T> : MonoBehaviour where T : GlobalSingleton<T> {
         }
     }
 
-    private void Awake() {
+    protected virtual void Awake() {
         if (_instance == null) {
             CreateInstance();
         } else {
