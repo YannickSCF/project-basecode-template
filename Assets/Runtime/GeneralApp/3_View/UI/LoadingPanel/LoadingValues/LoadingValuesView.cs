@@ -93,6 +93,9 @@ namespace YannickSCF.GeneralApp.View.UI.LoadingPanel.LoadingValues {
                 allGroup.alpha = Mathf.Lerp(initAlpha, endAlpha, c_time / timeToTrigger);
             }
 
+            if (!show) {
+                SetLaodingValuesInitialState();
+            }
             isShowingLoadingValues = show;
             triggerCoroutine = null;
         }
