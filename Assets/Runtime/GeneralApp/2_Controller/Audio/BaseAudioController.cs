@@ -26,6 +26,8 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
 
         private float _backgroundVolume = 1f;
 
+        private float _audioListenerVolume = 1f;
+
         #region Mono
         protected virtual void OnEnable() {
             SoundForButton.OnSoundButtonClicked += PlaySFX;
@@ -46,8 +48,10 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
                     break;
                 case AudioSources.General:
                 default:
-                    _musicAudioSource.mute = mute;
-                    _sfxAudioSource.mute = mute;
+                    if (mute) {
+                        _audioListenerVolume = AudioListener.volume;
+                    }
+                    AudioListener.volume = mute ? 0 : _audioListenerVolume;
                     break;
             }
         }
@@ -62,8 +66,7 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
                     break;
                 case AudioSources.General:
                 default:
-                    _musicAudioSource.volume *= volumeValue;
-                    _sfxAudioSource.volume *= volumeValue;
+                    AudioListener.volume = volumeValue;
                     break;
             }
         }
@@ -147,6 +150,10 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
             }
 
             _backgroundVolumeIsChanging = false;
+        }
+
+        protected bool IsMusicPlaying() {
+            return _musicAudioSource.isPlaying;
         }
         #endregion
 
