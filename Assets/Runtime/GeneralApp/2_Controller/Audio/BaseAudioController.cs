@@ -27,6 +27,7 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
         private float _backgroundVolume = 1f;
 
         private float _audioListenerVolume = 1f;
+        private bool _audioListenerMuted = false;
 
         #region Mono
         protected virtual void OnEnable() {
@@ -48,6 +49,7 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
                     break;
                 case AudioSources.General:
                 default:
+                    _audioListenerMuted = mute;
                     if (mute) {
                         _audioListenerVolume = AudioListener.volume;
                     }
@@ -66,7 +68,11 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
                     break;
                 case AudioSources.General:
                 default:
-                    AudioListener.volume = volumeValue;
+                    if (_audioListenerMuted) {
+                        _audioListenerVolume = volumeValue;
+                    } else {
+                        AudioListener.volume = volumeValue;
+                    }
                     break;
             }
         }
