@@ -1,6 +1,6 @@
 {
   "name": "com.yannickscf.project-basecode-template",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "displayName": "Yannick - Project Base Code Templates",
   "description": "Basic code created by Yannick for create template projects",
   "unity": "2021.3",
