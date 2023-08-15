@@ -20,7 +20,7 @@ public class GlobalSingleton<T> : MonoBehaviour where T : GlobalSingleton<T> {
     protected virtual void Awake() {
         if (_instance == null) {
             CreateInstance();
-        } else {
+        } else if (_instance != this) {
             DestroyImmediate(gameObject);
         }
     }

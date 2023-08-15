@@ -9,23 +9,23 @@ using UnityEngine;
 using static YannickSCF.GeneralApp.CommonEventsDelegates;
 
 namespace YannickSCF.GeneralApp.View.UI.Popups {
+    public abstract class PopupViewData {
+
+    }
+
     public abstract class PopupView : MonoBehaviour {
 
         public event SimpleEventDelegate OnViewShown;
         public event SimpleEventDelegate OnViewHidden;
 
-        public virtual void Init() { }
-        public virtual void Open() {
-            gameObject.SetActive(true);
-        }
+        public virtual void Init(PopupViewData popupData) { }
+
         public virtual void Show() {
             OnViewShown?.Invoke();
         }
+
         public virtual void Hide() {
             OnViewHidden?.Invoke();
-        }
-        public virtual void Close() {
-            Destroy(gameObject);
         }
     }
 }

@@ -11,7 +11,6 @@ using UnityEngine;
 using YannickSCF.GeneralApp.Controller.UI.LoadingPanel;
 using YannickSCF.GeneralApp.Controller.UI.Popups;
 using YannickSCF.GeneralApp.Controller.UI.Windows;
-using YannickSCF.GeneralApp.View.UI.Popups;
 using YannickSCF.GeneralApp.View.UI.Windows;
 
 namespace YannickSCF.GeneralApp.Controller.UI {
@@ -26,16 +25,12 @@ namespace YannickSCF.GeneralApp.Controller.UI {
         public LoadingPanelController LoadingController { get => _loadingController; }
 
         #region Methods for popups
-        public virtual T ShowPopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
-            return PopupsController.ShowPopup<T, U>(popupId);
+        public virtual PopupController ShowPopup(string popupId, PopupData data = null) {
+            return PopupsController.ShowPopup(popupId, data);
         }
 
-        public virtual void HidePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
-            PopupsController.HidePopup<T, U>(popupId);
-        }
-
-        public virtual void ClosePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
-            PopupsController.ClosePopup<T, U>(popupId);
+        public virtual void HidePopup(string popupId) {
+            PopupsController.HidePopup(popupId);
         }
         #endregion
 

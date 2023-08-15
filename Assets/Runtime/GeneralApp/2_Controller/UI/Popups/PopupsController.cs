@@ -20,22 +20,25 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
 
         [Header("Popups displays")]
         [SerializeField] private Transform _popupsDisplay;
-        [SerializeField] private Transform _hiddenPopupsDisplay;
+        [SerializeField] private Transform _popupsPoolDisplay;
 
         [Header("Background values")]
         [SerializeField] private Image _popupBackground;
         [SerializeField, Range(0f, 1f)] private float _backgroundActiveAlpha = 0.5f;
         [SerializeField, Range(0f, 3f)] private float _timeToSetFinalBackground = 0f;
 
-        private Dictionary<string, object> _popupsVisible;
-        private Dictionary<string, object> _popupsHidden;
+        private KeyValuePair<string, PopupController> _popupVisible;
+        private Dictionary<string, PopupController> _popupsPool;
+
+        private Stack<string> _popupsStack;
 
         private Coroutine _backgroundCoroutine = null;
 
         #region Mono
         private void Awake() {
-            _popupsVisible = new Dictionary<string, object>();
-            _popupsHidden = new Dictionary<string, object>();
+            _popupVisible = new KeyValuePair<string, PopupController>(string.Empty, null);
+            _popupsPool = new Dictionary<string, PopupController>();
+            _popupsStack = new Stack<string>();
 
             _popupBackground.gameObject.SetActive(false);
             _popupBackground.color = new Color(
@@ -45,86 +48,115 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                 0f);
 
             _popupsDisplay.gameObject.SetActive(true);
-            _hiddenPopupsDisplay.gameObject.SetActive(false);
+            _popupsPoolDisplay.gameObject.SetActive(false);
         }
         #endregion
 
-        public T ShowPopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
-            T popup = null;
-            if (_popupsDatabase != null) {
-                if (_popupsHidden.ContainsKey(popupId)) {
-                    popup = UnhidePopup<T, U>(popupId);
-                } else if (!_popupsVisible.ContainsKey(popupId)) {
-                    popup = CreatePopup<T, U>(popupId);
+        #region Event listeners methods
+        #endregion
+
+        public PopupController ShowPopup(string popupId, PopupData data = null) {
+            PopupController popup = null;
+            
+            // If popup is in scene and visible -> Show warning
+            if (_popupVisible.Key.Equals(popupId)) {
+                Debug.LogWarning("Popup already visible!");
+                return null;
+            }
+
+            // Get popup, creating it or from pool
+            popup = GetPopupObject(popupId);
+            PopupController popupVisible = _popupVisible.Value;
+
+            if (popup != null) {
+                // If there is a popup visible...
+                if (HasPopupVisible()) {
+                    // ... save popup in stack and hide it
+                    _popupsStack.Push(_popupVisible.Key);
+                    // SHOW THE POPUP when previous hide ends
+                    popupVisible.OnPopupHidden += () => {
+                        popupVisible.transform.SetParent(_popupsPoolDisplay);
+                        // SHOW THE POPUP
+                        ShowPopup(popupId, popup, data);
+                        popupVisible.CleanOnHiddenEvents();
+                    };
+                    popupVisible.Hide();
                 } else {
-                    Debug.LogWarning($"Popup '{popupId}' is already in scene!");
+                    // ... if not, show background
+                    ToggleBackground(true);
+                    // SHOW THE POPUP
+                    ShowPopup(popupId, popup, data);
                 }
-            } else {
-                Debug.LogError("No Popup Database selected!");
             }
 
             return popup;
         }
 
-        public void HidePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
-            if (_popupsVisible.ContainsKey(popupId)) {
-                if (_popupsVisible.TryGetValue(popupId, out object objectToHide)) {
-                    T popupToHide = objectToHide as T;
-                    // Hide background
-                    ToggleBackground(false);
-                    // Set popups lists
-                    _popupsVisible.Remove(popupId);
-                    _popupsHidden.Add(popupId, popupToHide);
-                    // Hide and listen on hide finished
-                    popupToHide.OnPopupHidden += OnPopupHidden;
-                    popupToHide.Hide();
-                } else {
-                    Debug.LogError($"Popup NOT found on visible popups list! ({popupId})");
-                }
-            } else {
-                Debug.LogWarning($"Popup '{popupId}' not found on visible area!");
-            }
-        }
-        private void OnPopupHidden<T>(PopupController<T> popupToHide) where T : PopupView {
-            popupToHide.transform.SetParent(_hiddenPopupsDisplay);
-            popupToHide.OnPopupHidden -= OnPopupHidden;
+        private void ShowPopup(string popupId, PopupController popup, PopupData data = null) {
+            popup.transform.SetParent(_popupsDisplay);
+            popup.Show(data);
+            _popupVisible = new KeyValuePair<string, PopupController>(popupId, popup);
         }
 
-        public void ClosePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
-            T popupToClose = null;
-            object objectToClose;
-            if (_popupsVisible.ContainsKey(popupId)) {
-                if (_popupsVisible.TryGetValue(popupId, out objectToClose)) {
-                    popupToClose = objectToClose as T;
+        public void HidePopup(string popupId, bool resetOnHide = true) {
+            // If popup is in scene and visible...
+            if (_popupVisible.Key.Equals(popupId)) {
+                PopupController popupVisible = _popupVisible.Value;
+                popupVisible.OnPopupHidden += () => {
+                    if (resetOnHide) {
+                        popupVisible.ResetPopup();
+                    }
+                    popupVisible.transform.SetParent(_popupsPoolDisplay);
+                    popupVisible.CleanOnHiddenEvents();
 
-                    ToggleBackground(false);
-                    
-                    _popupsVisible.Remove(popupId);
-                    popupToClose.Close();
-                    return;
-                } else {
-                    Debug.LogWarning($"Popup '{popupId}' NOT found on visible popups list!");
-                }
+                    if (_popupsStack.Count > 0) {
+                        string popupIdStacked = _popupsStack.Pop();
+                        _popupsPool.TryGetValue(popupIdStacked, out PopupController popup);
+                        
+                        _popupVisible = new KeyValuePair<string, PopupController>(popupIdStacked, popup);
+                        _popupVisible.Value.transform.SetParent(_popupsDisplay);
+                        _popupVisible.Value.Show();
+                    } else {
+                        ToggleBackground(false);
+                        _popupVisible = new KeyValuePair<string, PopupController>(string.Empty, null);
+                    }
+                };
+                _popupVisible.Value.Hide();
+            } else { // ... If not -> Show warning
+                Debug.LogWarning("Popup is not visible!");
             }
-
-            if (_popupsHidden.ContainsKey(popupId)) {
-                if (_popupsHidden.TryGetValue(popupId, out objectToClose)) {
-                    popupToClose = objectToClose as T;
-
-                    ToggleBackground(false);
-                    
-                    _popupsHidden.Remove(popupId);
-                    popupToClose.Close();
-                    return;
-                } else {
-                    Debug.LogWarning($"Popup '{popupId}' NOT found on hidden popups list!");
-                }
-            }
-
-            Debug.LogWarning($"Popup '{popupId}' already doesn't exists!");
         }
 
         #region Private methods
+        private bool HasPopupVisible() {
+            return !string.IsNullOrEmpty(_popupVisible.Key) &&
+                _popupVisible.Value != null;
+        }
+
+        private PopupController GetPopupObject(string popupId) {
+            PopupController popup = null;
+
+            // If popup is not instantiated...
+            if (!_popupsPool.ContainsKey(popupId)) {
+                // ... create it
+                GameObject popupToCreate = _popupsDatabase.GetPopupById(popupId);
+                if (popupToCreate != null) {
+                    GameObject popupCreated = Instantiate(popupToCreate, _popupsPoolDisplay);
+                    popup = popupCreated.GetComponent<PopupController>();
+                    _popupsPool.Add(popupId, popup);
+                } else {
+                    Debug.LogWarning($"There is no popup related to Id '{popupId}'");
+                }
+            } else {
+                // ... get it from list
+                if (!_popupsPool.TryGetValue(popupId, out popup)) {
+                    Debug.LogError($"There was a problem extracting popup '{popupId}'");
+                }
+            }
+
+            return popup;
+        }
+
         private void ToggleBackground(bool turnOn) {
             if (_popupBackground != null) {
                 if (_backgroundCoroutine != null) {
@@ -146,7 +178,6 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                 Debug.LogError("There is no popup background referenced!");
             }
         }
-
         private IEnumerator ToggleBackgroundCoroutine(bool turnOn) {
             if (turnOn) _popupBackground.gameObject.SetActive(true);
 
@@ -172,48 +203,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             if (!turnOn) _popupBackground.gameObject.SetActive(false);
             _backgroundCoroutine = null;
         }
-
-        private T UnhidePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
-            T popupToUnhide = null;
-            if (_popupsHidden.TryGetValue(popupId, out object objectToUnhide)) {
-                popupToUnhide = objectToUnhide as T;
-                // Hide background
-                ToggleBackground(true);
-                // Set popups lists
-                _popupsHidden.Remove(popupId);
-                _popupsVisible.Add(popupId, popupToUnhide);
-                // Show and listen on show finished
-                popupToUnhide.transform.SetParent(_popupsDisplay);
-                popupToUnhide.OnPopupShown += OnPopupShown;
-                popupToUnhide.Show();
-            } else {
-                Debug.LogError($"Popup NOT found on hidden popups list! ({popupId})");
-            }
-
-            return popupToUnhide;
-        }
-        private void OnPopupShown<T>(PopupController<T> popupToUnhide) where T : PopupView {
-            popupToUnhide.OnPopupShown -= OnPopupShown;
-        }
-
-        private T CreatePopup<T, U>(string popupId) where T : PopupController<U> where U : PopupView {
-            GameObject popupToShow = _popupsDatabase.GetPopupById(popupId);
-            if (popupToShow != null) {
-                ToggleBackground(true);
-                GameObject instantiatedObject = Instantiate(popupToShow, _popupsDisplay);
-                T popup = instantiatedObject.GetComponent<T>();
-
-                _popupsVisible.Add(popupId, popup);
-                popup.Init(popupId);
-                popup.Open();
-
-                return popup;
-            } else {
-                Debug.LogWarning($"There is no popup related to Id '{popupId}'");
-            }
-
-            return null;
-        }
+        
         #endregion
     }
 }

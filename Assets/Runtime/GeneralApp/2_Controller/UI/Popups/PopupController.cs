@@ -10,13 +10,16 @@ using UnityEngine;
 using YannickSCF.GeneralApp.View.UI.Popups;
 
 namespace YannickSCF.GeneralApp.Controller.UI.Popups {
-    public abstract class PopupController<T> : MonoBehaviour where T : PopupView {
+    public abstract class PopupData {
+        public string PopupId;
+    }
 
-        public delegate void PopupControllerEventDelegate(PopupController<T> popup);
-        public event PopupControllerEventDelegate OnPopupShown;
-        public event PopupControllerEventDelegate OnPopupHidden;
+    public abstract class PopupController : MonoBehaviour {
 
-        [SerializeField] protected T View;
+        public event CommonEventsDelegates.SimpleEventDelegate OnPopupShown;
+        public event CommonEventsDelegates.SimpleEventDelegate OnPopupHidden;
+
+        [SerializeField] protected PopupView View;
 
         private string _popupId;
         public string PopupId { get => _popupId; protected set => _popupId = value; }
@@ -34,23 +37,29 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
         #endregion
 
         protected virtual void ThrowPopupShown() {
-            OnPopupShown?.Invoke(this);
+            OnPopupShown?.Invoke();
         }
 
         protected virtual void ThrowPopupHidden() {
-            OnPopupHidden?.Invoke(this);
+            OnPopupHidden?.Invoke();
         }
 
-        public virtual void Init(string popupId) {
-            _popupId = popupId;
-            View.Init();
+        public virtual void Init(PopupData popupData) {
+            _popupId = popupData.PopupId;
+
+            PopupViewData viewData = null;
+            View.Init(viewData);
         }
 
-        public virtual void Open() {
-            View.Open();
+        public virtual void ResetPopup() {
+
         }
 
-        public virtual void Show() {
+        public virtual void Show(PopupData popupData = null) {
+            if (popupData != null) {
+                Init(popupData);
+            }
+
             View.Show();
         }
 
@@ -58,8 +67,12 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             View.Hide();
         }
 
-        public virtual void Close() {
-            View.Close();
+        public void CleanOnShownEvents() {
+            OnPopupShown = null;
+        }
+
+        public void CleanOnHiddenEvents() {
+            OnPopupHidden = null;
         }
     }
 }
