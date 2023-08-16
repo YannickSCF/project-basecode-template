@@ -19,20 +19,24 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
         public event CommonEventsDelegates.SimpleEventDelegate OnPopupShown;
         public event CommonEventsDelegates.SimpleEventDelegate OnPopupHidden;
 
-        [SerializeField] protected PopupView View;
+        [SerializeField] private PopupView _view;
+        protected T GetView<T>() where T : PopupView {
+            return (T)_view;
+        }
 
         private string _popupId;
         public string PopupId { get => _popupId; protected set => _popupId = value; }
 
+
         #region Mono
         protected virtual void OnEnable() {
-            View.OnViewShown += ThrowPopupShown;
-            View.OnViewHidden += ThrowPopupHidden;
+            _view.OnViewShown += ThrowPopupShown;
+            _view.OnViewHidden += ThrowPopupHidden;
         }
 
         protected virtual void OnDisable() {
-            View.OnViewShown += ThrowPopupShown;
-            View.OnViewHidden += ThrowPopupHidden;
+            _view.OnViewShown += ThrowPopupShown;
+            _view.OnViewHidden += ThrowPopupHidden;
         }
         #endregion
 
@@ -48,23 +52,21 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             _popupId = popupData.PopupId;
 
             PopupViewData viewData = null;
-            View.Init(viewData);
+            _view.Init(viewData);
         }
 
-        public virtual void ResetPopup() {
-
-        }
+        public virtual void ResetPopup() { }
 
         public virtual void Show(PopupData popupData = null) {
             if (popupData != null) {
                 Init(popupData);
             }
 
-            View.Show();
+            _view.Show();
         }
 
         public virtual void Hide() {
-            View.Hide();
+            _view.Hide();
         }
 
         public void CleanOnShownEvents() {

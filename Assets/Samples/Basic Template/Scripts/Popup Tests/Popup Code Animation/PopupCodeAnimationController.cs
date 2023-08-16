@@ -26,7 +26,7 @@ namespace YannickSCF.GeneralApp.BasicSample.PopupsTests.Popups {
 
         #region Mono
         private void Awake() {
-            _view = (PopupCodeAnimationView)View;
+            _view = GetView<PopupCodeAnimationView>();
         }
 
         protected override void OnEnable() {
@@ -66,7 +66,7 @@ namespace YannickSCF.GeneralApp.BasicSample.PopupsTests.Popups {
             _closePopupClicked = popupCodeAnimationData.ClosePopupAction;
             _contentPopupClicked = popupCodeAnimationData.ContentPopupAction;
 
-            View.Init(viewData);
+            _view.Init(viewData);
         }
     }
 }
