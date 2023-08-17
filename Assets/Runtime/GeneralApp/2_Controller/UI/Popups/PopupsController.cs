@@ -126,6 +126,10 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
             }
         }
 
+        public bool IsShowingPopup(string popupId) {
+            return _popupVisible.Key.Equals(popupId);
+        }
+
         #region Private methods
         private bool HasPopupVisible() {
             return !string.IsNullOrEmpty(_popupVisible.Key) &&
