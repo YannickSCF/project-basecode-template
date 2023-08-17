@@ -10,7 +10,6 @@ using UnityEngine;
 using UnityEngine.UI;
 /// Custom dependencies
 using YannickSCF.GeneralApp.Scriptables.Popup;
-using YannickSCF.GeneralApp.View.UI.Popups;
 
 namespace YannickSCF.GeneralApp.Controller.UI.Popups {
     public sealed class PopupsController : MonoBehaviour {
@@ -55,17 +54,17 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
         #region Event listeners methods
         #endregion
 
-        public PopupController ShowPopup(string popupId, PopupData data = null) {
+        public PopupController ShowPopup(PopupData data) {
             PopupController popup = null;
             
             // If popup is in scene and visible -> Show warning
-            if (_popupVisible.Key.Equals(popupId)) {
+            if (_popupVisible.Key.Equals(data.PopupId)) {
                 Debug.LogWarning("Popup already visible!");
                 return null;
             }
 
             // Get popup, creating it or from pool
-            popup = GetPopupObject(popupId);
+            popup = GetPopupObject(data.PopupId);
             PopupController popupVisible = _popupVisible.Value;
 
             if (popup != null) {
@@ -77,7 +76,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                     popupVisible.OnPopupHidden += () => {
                         popupVisible.transform.SetParent(_popupsPoolDisplay);
                         // SHOW THE POPUP
-                        ShowPopup(popupId, popup, data);
+                        ShowPopup(popup, data);
                         popupVisible.CleanOnHiddenEvents();
                     };
                     popupVisible.Hide();
@@ -85,17 +84,17 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
                     // ... if not, show background
                     ToggleBackground(true);
                     // SHOW THE POPUP
-                    ShowPopup(popupId, popup, data);
+                    ShowPopup(popup, data);
                 }
             }
 
             return popup;
         }
 
-        private void ShowPopup(string popupId, PopupController popup, PopupData data = null) {
+        private void ShowPopup(PopupController popup, PopupData data) {
             popup.transform.SetParent(_popupsDisplay);
             popup.Show(data);
-            _popupVisible = new KeyValuePair<string, PopupController>(popupId, popup);
+            _popupVisible = new KeyValuePair<string, PopupController>(data.PopupId, popup);
         }
 
         public void HidePopup(string popupId, bool resetOnHide = true) {

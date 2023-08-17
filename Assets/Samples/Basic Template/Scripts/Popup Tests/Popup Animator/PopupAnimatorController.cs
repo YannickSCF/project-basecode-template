@@ -10,11 +10,28 @@ using YannickSCF.GeneralApp.Controller.UI.Popups;
 
 namespace YannickSCF.GeneralApp.BasicSample.PopupsTests.Popups {
     public class PopupAnimatorData : PopupData {
-        public string Title;
-        public string Description;
+        private string _title;
+        private string _description;
 
-        public Action ClosePopupAction;
-        public Action<int> ContentPopupAction;
+        private Action _closePopupAction;
+        private Action<int> _contentPopupAction;
+
+        public PopupAnimatorData(string popupId) : base(popupId) { }
+        public PopupAnimatorData(
+            string popupId, string title, string description,
+            Action closeAction, Action<int> contentPopupAction)
+            : base(popupId) {
+
+            _title = title;
+            _description = description;
+            _closePopupAction = closeAction;
+            _contentPopupAction = contentPopupAction;
+        }
+
+        public string Title { get => _title; }
+        public string Description { get => _description; }
+        public Action ClosePopupAction { get => _closePopupAction; }
+        public Action<int> ContentPopupAction { get => _contentPopupAction; }
     }
 
     public class PopupAnimatorController : PopupController {

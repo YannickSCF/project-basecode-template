@@ -4,9 +4,6 @@
  **/
 
 /// Dependencies
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using YannickSCF.GeneralApp.BasicSample.PopupsTests.Popups;
@@ -53,15 +50,12 @@ namespace YannickSCF.GeneralApp.BasicSample.PopupsTests {
         #region Simple popup methods
         [ContextMenu("Show Popup Simple")]
         private void ShowPopupSimple() {
-            PopupSimpleData simpleData = new PopupSimpleData();
+            PopupSimpleData simpleData =
+                new PopupSimpleData("PopupSimple",
+                "Popup Simple", "This popup has a simple show/hide. Just enable or disable the game object",
+                HidePopupSimple, ShowPopupByIndex);
 
-            simpleData.PopupId = "PopupSimple";
-            simpleData.Title = "Popup Simple";
-            simpleData.Description = "This popup has a simple show/hide. Just enable or disable the game object";
-            simpleData.ClosePopupAction = HidePopupSimple;
-            simpleData.ContentPopupAction = ShowPopupByIndex;
-
-            _controller.ShowPopup("PopupSimple", simpleData);
+            _controller.ShowPopup(simpleData);
         }
 
         [ContextMenu("Hide Popup Simple")]
@@ -73,15 +67,12 @@ namespace YannickSCF.GeneralApp.BasicSample.PopupsTests {
         #region Animator popup methods
         [ContextMenu("Show Popup 2")]
         private void ShowPopupAnimator() {
-            PopupAnimatorData animatorData = new PopupAnimatorData();
+            PopupAnimatorData animatorData =
+                new PopupAnimatorData("PopupAnimator",
+                "Popup Animator", "This popup has an animator show/hide.",
+                HidePopupAnimator, ShowPopupByIndex);
 
-            animatorData.PopupId = "PopupAnimator";
-            animatorData.Title = "Popup Animator";
-            animatorData.Description = "This popup has an animator show/hide.";
-            animatorData.ClosePopupAction = HidePopupAnimator;
-            animatorData.ContentPopupAction = ShowPopupByIndex;
-
-            _controller.ShowPopup("PopupAnimator", animatorData);
+            _controller.ShowPopup(animatorData);
         }
 
         [ContextMenu("Hide Popup 2")]
@@ -93,15 +84,12 @@ namespace YannickSCF.GeneralApp.BasicSample.PopupsTests {
         #region Code Animation popup methods
         [ContextMenu("Show Popup 3")]
         private void ShowPopupCodeAnimation() {
-            PopupCodeAnimationData codeAnimationData = new PopupCodeAnimationData();
+            PopupCodeAnimationData codeAnimationData = 
+                new PopupCodeAnimationData("PopupCodeAnimation",
+                "Popup Code Animation", "This popup has a code animation show/hide.",
+                HidePopupCodeAnimation, ShowPopupByIndex);
 
-            codeAnimationData.PopupId = "PopupCodeAnimation";
-            codeAnimationData.Title = "Popup Code Animation";
-            codeAnimationData.Description = "This popup has a code animation show/hide.";
-            codeAnimationData.ClosePopupAction = HidePopupCodeAnimation;
-            codeAnimationData.ContentPopupAction = ShowPopupByIndex;
-
-            _controller.ShowPopup("PopupCodeAnimation", codeAnimationData);
+            _controller.ShowPopup(codeAnimationData);
         }
 
         [ContextMenu("Hide Popup 3")]

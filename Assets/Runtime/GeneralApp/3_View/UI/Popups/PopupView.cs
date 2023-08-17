@@ -18,7 +18,7 @@ namespace YannickSCF.GeneralApp.View.UI.Popups {
         public event SimpleEventDelegate OnViewShown;
         public event SimpleEventDelegate OnViewHidden;
 
-        public virtual void Init(PopupViewData popupData) { }
+        public virtual void Init(PopupViewData popupData = null) { }
 
         public virtual void Show() {
             OnViewShown?.Invoke();

@@ -11,7 +11,12 @@ using YannickSCF.GeneralApp.View.UI.Popups;
 
 namespace YannickSCF.GeneralApp.Controller.UI.Popups {
     public abstract class PopupData {
-        public string PopupId;
+        protected string _popupId;
+        public string PopupId { get => _popupId; }
+
+        public PopupData(string popupId) {
+            _popupId = popupId;
+        }
     }
 
     public abstract class PopupController : MonoBehaviour {
@@ -50,9 +55,7 @@ namespace YannickSCF.GeneralApp.Controller.UI.Popups {
 
         public virtual void Init(PopupData popupData) {
             _popupId = popupData.PopupId;
-
-            PopupViewData viewData = null;
-            _view.Init(viewData);
+            _view.Init(/*Can have a PopupViewData*/);
         }
 
         public virtual void ResetPopup() { }
