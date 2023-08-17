@@ -32,6 +32,10 @@ namespace YannickSCF.GeneralApp.Controller.UI {
         public virtual void HidePopup(string popupId) {
             PopupsController.HidePopup(popupId);
         }
+
+        public bool IsShowingPopup(string popupId) {
+            return PopupsController.IsShowingPopup(popupId);
+        }
         #endregion
 
         public virtual T ShowView<T, U>(string windowId) where T : WindowController<U> where U : WindowView {
