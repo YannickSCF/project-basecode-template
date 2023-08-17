@@ -33,8 +33,8 @@ namespace YannickSCF.GeneralApp.Controller.UI {
             PopupsController.HidePopup(popupId);
         }
 
-        public bool IsShowingPopup(string popupId) {
-            return PopupsController.IsShowingPopup(popupId);
+        public string PopupShowing() {
+            return PopupsController.PopupShowing();
         }
         #endregion
 
