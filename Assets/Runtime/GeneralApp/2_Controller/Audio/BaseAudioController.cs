@@ -8,7 +8,7 @@ using System.Collections;
 using UnityEngine;
 /// Custom dependencies
 using YannickSCF.GeneralApp.Scriptables.Audio;
-using YannickSCF.GeneralApp.View.ComponentTools.SoundButton;
+using YannickSCF.GeneralApp.View.ComponentTools.ButtonComponents;
 
 namespace YannickSCF.GeneralApp.Controller.Audio {
     public class BaseAudioController : MonoBehaviour {
@@ -31,10 +31,10 @@ namespace YannickSCF.GeneralApp.Controller.Audio {
 
         #region Mono
         protected virtual void OnEnable() {
-            SoundForButton.OnSoundButtonClicked += PlaySFX;
+            SoundForButton.SoundButtonEvent += PlaySFX;
         }
         protected virtual void OnDisable() {
-            SoundForButton.OnSoundButtonClicked -= PlaySFX;
+            SoundForButton.SoundButtonEvent -= PlaySFX;
         }
         #endregion
 

@@ -44,7 +44,7 @@ public class ConditionalHideDrawer : PropertyDrawer {
             case SerializedPropertyType.ObjectReference:
                 return sourcePropertyValue.objectReferenceValue != null;
             case SerializedPropertyType.Enum:
-                return sourcePropertyValue.enumValueIndex == condHAtt.ValueToComapre;
+                return condHAtt.ValuesToCompare.Contains(sourcePropertyValue.enumValueIndex);
             default:
                 Debug.LogError("Data type of the property used for conditional hiding [" + sourcePropertyValue.propertyType + "] is currently not supported");
                 return true;
