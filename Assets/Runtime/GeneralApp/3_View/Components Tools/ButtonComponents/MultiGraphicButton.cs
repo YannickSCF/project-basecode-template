@@ -9,10 +9,10 @@ using UnityEditor.UI;
 namespace YannickSCF.GeneralApp.View.ComponentTools.ButtonComponents {
     public class MultiGraphicButton : Button {
 
-        public bool UseAllGraphicChilds;
+        public bool UseAllGraphicChilds = true;
 
-        public bool UseTargetGraphic;
-        public bool UseExtraImageGraphic;
+        public bool UseTargetGraphic = false;
+        public bool UseExtraImageGraphic = false;
         public Image ExtraImage;
 
         protected override void DoStateTransition(SelectionState state, bool instant) {

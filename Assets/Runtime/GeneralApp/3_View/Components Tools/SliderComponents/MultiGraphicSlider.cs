@@ -9,11 +9,11 @@ using UnityEditor.UI;
 namespace YannickSCF.GeneralApp.View.ComponentTools.SliderComponents {
     public class MultiGraphicSlider : Slider {
 
-        public bool UseAllGraphicChilds;
+        public bool UseAllGraphicChilds = true;
 
-        public bool UseHandleGraphic;
-        public bool UseFillGraphic;
-        public bool UseBackgroundGraphic;
+        public bool UseHandleGraphic = false;
+        public bool UseFillGraphic = false;
+        public bool UseBackgroundGraphic = false;
         public Image Background;
 
         protected override void DoStateTransition(SelectionState state, bool instant) {
