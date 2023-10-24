@@ -66,7 +66,7 @@ namespace YannickSCF.GeneralApp.View.ComponentTools.InputComponents {
                 EditorGUILayout.LabelField("Graphics to use on Color Tint", EditorStyles.boldLabel);
                 EditorGUI.indentLevel++;
 
-                GUIContent useAllGraphicChildsGUI = new GUIContent("All Graphics", "Using default colors of this component");
+                GUIContent useAllGraphicChildsGUI = new GUIContent("All Graphics", "All graphics will be tinted using TMP_InputField colors assigned above");
                 targetInputField.UseAllGraphicChilds = EditorGUILayout.ToggleLeft(useAllGraphicChildsGUI, targetInputField.UseAllGraphicChilds);
 
                 if (!targetInputField.UseAllGraphicChilds) {
