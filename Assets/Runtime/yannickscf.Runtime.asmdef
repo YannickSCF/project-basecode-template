@@ -2,7 +2,6 @@
     "name": "yannickscf.Runtime",
     "rootNamespace": "",
     "references": [
-        "yannickscf.Runtime.Tools",
         "yannickscf.Runtime.GeneralApp.Views",
         "yannickscf.Runtime.GeneralApp.Controllers",
         "yannickscf.Runtime.GeneralApp.Tools",

@@ -1,4 +1,5 @@
 ﻿// #define HUNT_ADDRESSABLES
+#if UNITY_EDITOR
 
 using System;
 using System.Collections.Generic;
@@ -943,7 +944,7 @@ namespace DependenciesHunter
 
             var icons = new List<Texture2D>();
 
-            #if UNITY_2021_2_OR_NEWER
+#if UNITY_2021_2_OR_NEWER
             foreach (var buildTargetField in typeof(NamedBuildTarget).GetFields(BindingFlags.Public | BindingFlags.Static))
             {
                 if (buildTargetField.Name == "Unknown")
@@ -954,12 +955,12 @@ namespace DependenciesHunter
                 NamedBuildTarget buildTarget = (NamedBuildTarget) buildTargetField.GetValue(null);
                 icons.AddRange(PlayerSettings.GetIcons(buildTarget, IconKind.Any));
             }
-            #else
+#else
             foreach (var targetGroup in Enum.GetValues(typeof(BuildTargetGroup)))
             {
                 icons.AddRange(PlayerSettings.GetIconsForTargetGroup((BuildTargetGroup) targetGroup));
             }
-            #endif
+#endif
 
             foreach (var icon in icons)
             {
@@ -1154,3 +1155,4 @@ namespace DependenciesHunter
         }
     }
 }
+#endif
