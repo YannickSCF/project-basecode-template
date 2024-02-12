@@ -5,7 +5,8 @@
         "yannickscf.Runtime.GeneralApp.Views",
         "yannickscf.Runtime.GeneralApp.Controllers",
         "yannickscf.Runtime.GeneralApp.Tools",
-        "yannickscf.Runtime.GeneralApp.Scriptables"
+        "yannickscf.Runtime.GeneralApp.Scriptables",
+        "yannickscf.Editor"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
